@@ -18,8 +18,10 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 from nextup.views import home
+from authentication.views import login
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
+    url(r'^login', login)
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

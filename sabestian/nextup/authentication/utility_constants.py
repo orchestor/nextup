@@ -1,0 +1,8 @@
+GENERAL_ERROR_MESSAGE = "There is some error. Please try after some time."
+UNAUTHORIZED_LOGIN_MESSAGE = "User is not allowed to login into admin panel !"
+AUTHENTICATION_ERROR_MESSAGE = "Invalid email or password."
+SUCCESSFUL_LOGIN_MESSAGE = "User logged in successfully !"
+EMPTY_THUMBNAIL_ERROR_MESSAGE = "A thumbnail is required !" 
+EMAIL_KEY = "email"
+PASSWORD_KEY = "password"
+EMPTY_STRING = ""
