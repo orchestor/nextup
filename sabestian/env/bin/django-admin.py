@@ -1,4 +1,4 @@
-#!/home/bhavya/web/sabestian/env/bin/python
+#!/home/bhavya/web/nextup/sabestian/env/bin/python
 from django.core import management
 
 if __name__ == "__main__":
