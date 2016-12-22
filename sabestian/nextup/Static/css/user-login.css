@@ -1,5 +1,6 @@
 body {
-	background: #FFECB3;
+	padding-bottom: 20px;
+	/*background: #FFECB3;*/
 }
 
 .container {
@@ -12,16 +13,45 @@ body {
 	width: 100px;
 }
 
+.description {
+	margin-top: 2%;
+    font-size: 30px;
+    font: 600;
+    font-family: cursive;
+    color: brown;
+}
+
 .header {
-	background: #FFFFFF;
+	background: #FFECB3;
 	border-radius: 6px;
 	box-shadow: 1px 2px 2px #9E9E9E;
 }
 
 .login-text {
 	text-align: center;
+	width: 100%;
 }
 
 .login-alert {
+	display: none;
+}
+
+.part {
+	margin-top: 30px;
+}
+
+.user-handle-error {
+	display: none;
+}
+
+.show-tick {
+	display: none;
+}
+
+.show-wrong {
+	display: none;
+}
+
+.signup-error {
 	display: none;
 }

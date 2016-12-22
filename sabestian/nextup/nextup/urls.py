@@ -17,11 +17,14 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
-from nextup.views import home
-from authentication.views import login
+from nextup.views import home, successSignup
+from authentication.views import login, signup, checkUserhandle
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
-    url(r'^login', login)
+    url(r'^login', login),
+    url(r'^signup', signup),
+    url(r'^checkUserhandle', checkUserhandle),
+    url(r'^success-signup$', successSignup),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

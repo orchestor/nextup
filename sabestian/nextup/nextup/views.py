@@ -11,3 +11,6 @@ def home(request):
 		displayPage = "user-login.html"
 
 	return render(request, displayPage)
+
+def successSignup(request):
+	return render(request, "success-signup.html")

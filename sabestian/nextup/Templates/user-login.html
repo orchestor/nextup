@@ -22,10 +22,10 @@
 				<div class="col-md-4">
 					<img src="/static/images/logo.png" class="logo">
 				</div>
-				<div class="col-md-8">A social media platform for music</div>
+				<div class="col-md-8 description">A social media platform for music</div>
 			</div>
 			<div class="row sub-container">
-				<div class="col-md-6">
+				<div class="col-md-6 part">
 					<div class="row login-text">
 						Login
 					</div>
@@ -42,29 +42,320 @@
 							    <label for="login-password">Password</label>
 							    <input type="password" class="form-control" id="login-password" placeholder="Password">
 							  </div>
-							  <button type="submit" class="btn btn-default login-button">Submit</button>
+  							<button type="button" class="btn btn-warning col-md-offset-3 col-md-6 login-button">Login !</button>
+
 							</form>
 
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 part">
 					<div class="row">
 						<div class="row login-text">
 							Signup
 						</div>
 
 						<div class="col-md-8 col-md-offset-3">
+							
 							<form>
+						  <div class="alert alert-danger signup-error" role="alert"></div>
+  							<div class="form-group">
+							    <label for="first-name">First Name</label>
+							    <input type="text" class="form-control" id="first-name" placeholder="First Name">
+							  </div>
+							  <div class="alert alert-danger user-handle-error" role="alert"></div>
+							  <div class="form-group has-feedback" id="user-handle-container">
+							    <label for="user-handle" class="control-label">User Handle</label>
+							    <input type="text" class="form-control" id="user-handle" placeholder="User Handle" aria-describedby="user-handle-success">
+						      	<span class="glyphicon glyphicon-ok form-control-feedback show-tick" aria-hidden="true"></span>
+  								<span id="user-handle-success" class="sr-only show-tick">(success)</span>
+								<span class="glyphicon glyphicon-remove form-control-feedback show-wrong" aria-hidden="true"></span>
+  								<span id="user-handle-success" class="sr-only show-wrong">(error)</span>
+							  </div>
+							  <div class="form-group">
+							    <label for="age">Age</label>
+							    <input type="number" class="form-control" id="age" placeholder="Age">
+							  </div>
 							  <div class="form-group">
 							    <label for="email">Email address</label>
 							    <input type="email" class="form-control" id="email" placeholder="Email">
 							  </div>
 							  <div class="form-group">
+							    <label for="gender">Gender</label>
+								<select class="form-control" id="gender">
+									<option>Male</option>
+									<option>Female</option>
+								</select>
+								</div>
+							  <div class="form-group">
+							    <label for="here-for">Are you an artist or a listener</label>
+								<select class="form-control" id="type">
+									<option>Artist</option>
+									<option>Listener</option>
+								</select>
+							  </div>								
+							  <div class="form-group">
 							    <label for="password">Password</label>
 							    <input type="password" class="form-control" id="password" placeholder="Password">
 							  </div>
-							  <button type="submit" class="btn btn-default">Submit</button>
+							  <div class="form-group">
+							    <label for="confirm-password">Confirm Password</label>
+							    <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+							  </div>
+  							  <div class="form-group">
+							    <label for="area-code">Area Code</label>
+								<select class="form-control" id="area-code">
+									<option>205</option>
+									<option>251</option>
+									<option>256</option>
+									<option>334</option>
+									<option>938</option>
+									<option>520</option>
+									<option>602</option>
+									<option>623</option>
+									<option>928</option>
+									<option>501</option>
+									<option>870</option>
+									<option>213</option>
+									<option>310</option>
+									<option>323</option>
+									<option>408</option>
+									<option>415</option>
+									<option>424</option>
+									<option>442</option>
+									<option>510</option>
+									<option>530</option>
+									<option>559</option>
+									<option>562</option>
+									<option>619</option>
+									<option>626</option>
+									<option>650</option>
+									<option>657</option>
+									<option>661</option>
+									<option>669</option>
+									<option>707</option>
+									<option>714</option>
+									<option>747</option>
+									<option>760</option>
+									<option>805</option>
+									<option>818</option>
+									<option>831</option>
+									<option>858</option>
+									<option>909</option>
+									<option>916</option>
+									<option>925</option>
+									<option>949</option>
+									<option>951</option>
+									<option>719</option>
+									<option>720</option>
+									<option>970</option>
+									<option>475</option>
+									<option>860</option>
+									<option>305</option>
+									<option>321</option>
+									<option>352</option>
+									<option>386</option>
+									<option>407</option>
+									<option>561</option>
+									<option>727</option>
+									<option>754</option>
+									<option>772</option>
+									<option>786</option>
+									<option>813</option>
+									<option>850</option>
+									<option>863</option>
+									<option>904</option>
+									<option>941</option>
+									<option>954</option>
+									<option>404</option>
+									<option>470</option>
+									<option>478</option>
+									<option>678</option>
+									<option>706</option>
+									<option>762</option>
+									<option>770</option>
+									<option>912</option>
+									<option>224</option>
+									<option>309</option>
+									<option>312</option>
+									<option>331</option>
+									<option>618</option>
+									<option>630</option>
+									<option>708</option>
+									<option>773</option>
+									<option>779</option>
+									<option>815</option>
+									<option>847</option>
+									<option>872</option>
+									<option>260</option>
+									<option>317</option>
+									<option>574</option>
+									<option>765</option>
+									<option>812</option>
+									<option>515</option>
+									<option>563</option>
+									<option>641</option>
+									<option>712</option>
+									<option>620</option>
+									<option>785</option>
+									<option>913</option>
+									<option>502</option>
+									<option>606</option>
+									<option>859</option>
+									<option>318</option>
+									<option>337</option>
+									<option>504</option>
+									<option>985</option>
+									<option>301</option>
+									<option>410</option>
+									<option>443</option>
+									<option>667</option>
+									<option>351</option>
+									<option>413</option>
+									<option>508</option>
+									<option>617</option>
+									<option>774</option>
+									<option>781</option>
+									<option>857</option>
+									<option>978</option>
+									<option>248</option>
+									<option>269</option>
+									<option>313</option>
+									<option>517</option>
+									<option>586</option>
+									<option>616</option>
+									<option>734</option>
+									<option>810</option>
+									<option>906</option>
+									<option>947</option>
+									<option>989</option>
+									<option>320</option>
+									<option>507</option>
+									<option>612</option>
+									<option>651</option>
+									<option>763</option>
+									<option>952</option>
+									<option>601</option>
+									<option>662</option>
+									<option>769</option>
+									<option>417</option>
+									<option>573</option>
+									<option>636</option>
+									<option>660</option>
+									<option>816</option>
+									<option>402</option>
+									<option>531</option>
+									<option>725</option>
+									<option>775</option>
+									<option>551</option>
+									<option>609</option>
+									<option>732</option>
+									<option>848</option>
+									<option>856</option>
+									<option>862</option>
+									<option>908</option>
+									<option>973</option>
+									<option>575</option>
+									<option>315</option>
+									<option>347</option>
+									<option>516</option>
+									<option>518</option>
+									<option>585</option>
+									<option>607</option>
+									<option>631</option>
+									<option>646</option>
+									<option>716</option>
+									<option>718</option>
+									<option>845</option>
+									<option>914</option>
+									<option>917</option>
+									<option>929</option>
+									<option>336</option>
+									<option>704</option>
+									<option>828</option>
+									<option>910</option>
+									<option>919</option>
+									<option>980</option>
+									<option>984</option>
+									<option>234</option>
+									<option>330</option>
+									<option>419</option>
+									<option>440</option>
+									<option>513</option>
+									<option>567</option>
+									<option>614</option>
+									<option>740</option>
+									<option>937</option>
+									<option>539</option>
+									<option>580</option>
+									<option>918</option>
+									<option>503</option>
+									<option>541</option>
+									<option>971</option>
+									<option>267</option>
+									<option>272</option>
+									<option>412</option>
+									<option>484</option>
+									<option>570</option>
+									<option>610</option>
+									<option>717</option>
+									<option>724</option>
+									<option>814</option>
+									<option>878</option>
+									<option>939</option>
+									<option>843</option>
+									<option>864</option>
+									<option>615</option>
+									<option>731</option>
+									<option>865</option>
+									<option>901</option>
+									<option>931</option>
+									<option>214</option>
+									<option>254</option>
+									<option>281</option>
+									<option>325</option>
+									<option>346</option>
+									<option>361</option>
+									<option>409</option>
+									<option>430</option>
+									<option>432</option>
+									<option>469</option>
+									<option>512</option>
+									<option>682</option>
+									<option>713</option>
+									<option>737</option>
+									<option>806</option>
+									<option>817</option>
+									<option>830</option>
+									<option>832</option>
+									<option>903</option>
+									<option>915</option>
+									<option>936</option>
+									<option>940</option>
+									<option>956</option>
+									<option>972</option>
+									<option>979</option>
+									<option>435</option>
+									<option>801</option>
+									<option>434</option>
+									<option>540</option>
+									<option>571</option>
+									<option>703</option>
+									<option>757</option>
+									<option>804</option>
+									<option>253</option>
+									<option>360</option>
+									<option>425</option>
+									<option>509</option>
+									<option>681</option>
+									<option>414</option>
+									<option>534</option>
+									<option>608</option>
+									<option>715</option>
+									<option>920</option>
+								</select>
+							</div>
+							<button type="button" class="btn btn-warning col-md-offset-3 col-md-6 signup-button">Sign Up Now !</button>
 							</form>
 						</div>
 					</div>
