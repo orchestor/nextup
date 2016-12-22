@@ -2,8 +2,84 @@
 <html>
 	<head>
 		<title>NextUp | A social media platform for music</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="/static/css/user-profile-page.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/static/js/js.cookie.js"></script>
+		<script type="text/javascript" src="/static/js/user-profile-page.js"></script>
 	</head>
 	<body>
-		User profile page
+		<div class="row header">
+			<div class="col-md-8">
+				<div class="col-md-2">
+					<img src="/static/images/logo.png" class="logo">
+				</div>
+				<div class="col-md-2 heading-container">
+					<span class="label label-warning headings">Discover</span>
+				</div>
+				<div class="col-md-2 heading-container">
+					<span class="label label-warning headings">What's Hot</span>
+				</div>
+				<div class="col-md-2 heading-container">
+					<span class="label label-warning headings">Expansion</span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="col-md-3 icons-container">
+					<img src="/static/images/message.png" height="35px" width="35px">
+				</div>
+				<div class="col-md-3 icons-container">
+					<img src="/static/images/bell.png" height="35px" width="35px">
+				</div>
+				<div class="col-md-3 icons-container">
+					<img src="/static/images/coins.png" height="35px" width="35px">
+				</div>
+				<div class="col-md-3 icons-container">
+					<img src="/static/images/message.png" height="35px" width="35px">
+				</div>
+			</div>
+		</div>
+		<div class="row container-2">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="row"><b>Genre</b></div>
+					<img src="/static/images/list-icon.png" height="40px" width="40px">
+				</div>
+				<div class="col-md-6 song-and-artist">
+					<div class="row song-name">SONG NAME</div>
+					<div class="row artist-name">ARTIST NAME</div>
+				</div>
+				<div class="col-md-3">
+					<div class="row">
+						<div class="heart-like-container">
+							<img src="/static/images/heart.png" height="100px" width="100px" class="like-image">
+							<span class="badge like-badge">42</span>
+						</div>
+					</div>
+					<div class="row like-text">Likes</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="music-carousal">
+					<div>
+						<img src="/static/images/cover1.jpg" class="song-covers cover1" height="200px" width="200px">
+						<div></div>
+					</div>
+					<img src="/static/images/cover2.jpg" class="song-covers cover2" height="200px" width="200px">
+					<img src="/static/images/cover3.jpg" class="song-covers cover3" height="200px" width="200px">
+					<img src="/static/images/cover4.jpg" class="song-covers cover4" height="200px" width="200px">
+					<img src="/static/images/cover5.jpg" class="song-covers cover5" height="200px" width="200px">
+				</div>
+			</div>
+			<div></div>
+		</div>
 	</body>
 </html>

@@ -70,6 +70,17 @@ window.onload = function() {
 		});
 	});
 
+	$('#confirm-password').focusout(function(){
+		var password = $('#password').val();
+		var confirmPassword = $('#confirm-password').val();		
+		if (confirmPassword !== password) {
+			$('.signup-error').show();
+			$('.signup-error').text("Both passwords do not match !");			
+		} else {
+			$('.signup-error').hide();			
+		}
+	});
+
 	$('.signup-button').click(function(e){
 		e.preventDefault();
 		var firstName = $('#first-name').val();
@@ -79,8 +90,14 @@ window.onload = function() {
 		var gender = $('#gender').val();
 		var type = $('#type').val();
 		var password = $('#password').val();
+		var confirmPassword = $('#confirm-password').val();
 		var areaCode = $('#area-code').val();
 		var csrftoken = Cookies.get('csrftoken');
+
+		if (confirmPassword !== password) {
+			$('.signup-error').show();
+			$('.signup-error').text("Both passwords do not match !");			
+		}
 
 		$.ajaxSetup({
 		    beforeSend: function(xhr, settings) {
