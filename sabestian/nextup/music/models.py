@@ -7,3 +7,7 @@ class song(models.Model):
 	artist = models.ForeignKey(userDetails)
 	coverPic = models.ImageField(upload_to = 'song_covers/')
 	dateOfUpload = models.DateTimeField(auto_now_add = True)
+	songFile = models.FileField(upload_to = 'song_file/')
+
+	def __str__(self):
+		return self.songName + " " + self.artist.userHandle

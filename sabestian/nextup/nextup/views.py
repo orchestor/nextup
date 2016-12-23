@@ -16,6 +16,10 @@ def home(request):
 			temp["songName"] = s.songName
 			temp["artistName"] = s.artist.userHandle
 			temp["cover"] = s.coverPic.url
+			if (s.songFile != ""):
+				temp["songFile"] = s.songFile.url
+			else:
+				temp["songFile"] = s.songFile
 			responseArr.append(temp)
 		print(responseArr[-1])
 		return render(request, displayPage, {'songs': responseArr, 'topSong': responseArr[-1]["songName"], 'topArtist': responseArr[-1]["artistName"]})

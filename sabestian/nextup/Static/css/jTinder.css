@@ -223,15 +223,6 @@ body {
     background: #FFEAB3;
 }
 
-.play-icon {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    z-index: 100;
-    top: 30px;
-    left: 500px;
-}
-
 /* jTinder status text */
 #status {
     text-align: center;

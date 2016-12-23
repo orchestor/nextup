@@ -89,7 +89,9 @@
 		            		{% for s in songs %}
 	        	        	<li class="pane1">
 	        	        		<img src="/static/images/play.ico" class="play-icon">
-		                    	<div class="img" style="background: url('{{s.cover}}') no-repeat scroll center center; background-size: cover;"></div>
+			                    <div class="song-file"><audio><source src="{{s.songFile}}"></audio></div>
+	        	        		<img src="/static/images/pause.png" class="pause-icon">
+		                    	<div class="img song-cover" style="background: url('{{s.cover}}') no-repeat scroll center center; background-size: cover;">{{s.cover}}</div>
 		                    	<div class="song-name-artist-name-sub">{{s.songName}}##{{s.artistName}}</div>
 			                    <div class="like"></div>
 			                    <div class="dislike"></div>
@@ -139,9 +141,6 @@
 
 			</div>
 		</div>
-		<audio controls>
-	  		<source src="/static/images/" type="audio/mpeg">
-		</audio>
     <!-- jQuery lib -->
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
     <!-- transform2d lib -->

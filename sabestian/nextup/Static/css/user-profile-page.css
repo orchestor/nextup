@@ -113,3 +113,22 @@
 .song-name-artist-name-sub {
 	visibility: hidden;
 }
+
+.play-icon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    top: 30px;
+    left: 500px;
+}
+
+.pause-icon {
+	display: none;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    top: 30px;
+    left: 500px;
+}
