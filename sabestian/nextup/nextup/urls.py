@@ -27,4 +27,4 @@ urlpatterns = [
     url(r'^signup', signup),
     url(r'^checkUserhandle', checkUserhandle),
     url(r'^success-signup$', successSignup),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

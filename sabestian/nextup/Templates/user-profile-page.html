@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 		<link rel="stylesheet" href="/static/css/user-profile-page.css">
+	    <link rel="stylesheet" type="text/css" href="/static/css/jTinder.css">
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
@@ -54,8 +55,8 @@
 					<img src="/static/images/list-icon.png" height="40px" width="40px">
 				</div>
 				<div class="col-md-6 song-and-artist">
-					<div class="row song-name">SONG NAME</div>
-					<div class="row artist-name">ARTIST NAME</div>
+					<div class="row song-name">{{topSong}}</div>
+					<div class="row artist-name">{{topArtist}}</div>
 				</div>
 				<div class="col-md-3">
 					<div class="row">
@@ -67,7 +68,7 @@
 					<div class="row like-text">Likes</div>
 				</div>
 			</div>
-			<div class="row">
+<!-- 			<div class="row">
 				<div class="music-carousal">
 					<div>
 						<img src="/static/images/cover1.jpg" class="song-covers cover1" height="200px" width="200px">
@@ -79,7 +80,76 @@
 					<img src="/static/images/cover5.jpg" class="song-covers cover5" height="200px" width="200px">
 				</div>
 			</div>
-			<div></div>
+			<div></div> -->
+			<div class="row">
+	          	<div class="wrap">
+					<div id="tinderslide">
+		            	<ul class="tinder-container">
+		            		<span>Oops! No more songs.</span>
+		            		{% for s in songs %}
+	        	        	<li class="pane1">
+	        	        		<img src="/static/images/play.ico" class="play-icon">
+		                    	<div class="img" style="background: url('{{s.cover}}') no-repeat scroll center center; background-size: cover;"></div>
+		                    	<div class="song-name-artist-name-sub">{{s.songName}}##{{s.artistName}}</div>
+			                    <div class="like"></div>
+			                    <div class="dislike"></div>
+		                	</li>
+		                	{% endfor %}
+<!-- 			                <li class="pane2">
+	        	        		<img src="/static/images/play.ico" class="play-icon">
+			                    <div class="img"></div>
+			                    <div>San Francisco</div>
+			                    <div class="like"></div>
+			                    <div class="dislike"></div>
+	                		</li>
+			                <li class="pane3">
+	        	        		<img src="/static/images/play.ico" class="play-icon">
+			                    <div class="img"></div>
+			                    <div>Chicago</div>
+			                    <div class="like"></div>
+			                    <div class="dislike"></div>
+			                </li>
+			                <li class="pane4">
+	        	        		<img src="/static/images/play.ico" class="play-icon">
+			                    <div class="img"></div>
+			                    <div>New York</div>
+			                    <div class="like"></div>
+			                    <div class="dislike"></div>
+			                </li>
+			                <li class="pane5">
+	        	        		<img src="/static/images/play.ico" class="play-icon">
+			                    <div class="img"></div>
+			                    <div>Beach</div>
+			                    <div class="like"></div>
+			                    <div class="dislike"></div>
+			                </li> -->
+            			</ul>
+        			</div>
+        		</div>
+    		    <!-- jTinder trigger by buttons  -->
+    			<div class="actions">
+			        <a href="#" class="dislike"><i></i></a>
+			        <a href="#" class="like"><i></i></a>
+			    </div>
+
+ 			   <!-- jTinder status text  -->
+    			<div id="status"></div>
+			</div>
+			<div class="row footer">
+
+			</div>
 		</div>
+		<audio controls>
+	  		<source src="/static/images/" type="audio/mpeg">
+		</audio>
+    <!-- jQuery lib -->
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <!-- transform2d lib -->
+    <script type="text/javascript" src="/static/js/jquery.transform2d.js"></script>
+    <!-- jTinder lib -->
+    <script type="text/javascript" src="/static/js/jquery.jTinder.js"></script>
+    <!-- jTinder initialization script -->
+    <script type="text/javascript" src="/static/js/main.js"></script>
+
 	</body>
 </html>

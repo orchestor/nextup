@@ -19,3 +19,6 @@ class userDetails(models.Model):
 	gender = models.CharField(max_length = 10, choices = GENDER)
 	type = models.CharField(max_length = 10, choices = USER_TYPE)
 	areaCode = models.IntegerField()
+
+	def __str__(self):
+		return self.userHandle

@@ -1,24 +1,20 @@
 window.onload = function() {
-	swipeStart = false;
-	swipeEnd = false;
-	$('.cover3').click(function() {
-		console.log("up")
-		swipeStart = true;
-		swipeEnd = true;
-	});
-
-	$('.cover3').mousedown(function() {
-		console.log("down")
-		swipeEnd = true;
-		swipeStart = true;
-	});
-
-	$(document).mousemove(function(event) {
-		if (swipeStart && swipeEnd) {
-			console.log(event.pageY)
-			if (event.pageY < 400) {
-				$('.cover3').css('visibility', 'hidden');
-			}
+	var songAndArtistNames = $('.song-name-artist-name-sub');
+	console.log(songAndArtistNames)
+	var resultArr = []
+	for(var i = 0; i < songAndArtistNames.length; i++) {
+		temp = {
+			'songName': ($(songAndArtistNames[i]).text()).split("##")[0],
+			'artistName': ($(songAndArtistNames[i]).text()).split("##")[1]
 		}
+		resultArr.push(temp);
+	}
+	console.log(resultArr)
+
+	count = 2
+
+	$('.dislike').click(function() {
+		$('.song-name').html(resultArr[resultArr.length - count]['songName'])
+		count += 1;
 	});
 }
