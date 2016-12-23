@@ -24,6 +24,14 @@
 	background: #FFEAB3;
 }
 
+.sidebar-custom {
+	padding-left: 0px;
+}
+
+.sidebar-custom-right {
+	padding-right: 0px;
+}
+
 .song-and-artist {
 	text-align: center;
 }
@@ -135,4 +143,16 @@
 
 .song-file {
 	display: none;
+}
+
+.icon-row {
+	padding: 10px;
+}
+
+.icon-text {
+	padding-left: 10px;
+}
+
+.audio-right-nav {
+	width: 160px;
 }

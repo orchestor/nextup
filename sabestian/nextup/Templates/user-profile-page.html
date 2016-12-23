@@ -49,10 +49,81 @@
 			</div>
 		</div>
 		<div class="row container-2">
+		  <div class="col-md-2 sidebar-custom">
+		    <div class="sidebar-nav">
+		      <div class="navbar navbar-default" role="navigation">
+		        <div class="navbar-header">
+		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <span class="visible-xs navbar-brand">Sidebar menu</span>
+		        </div>
+		        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+		          <ul class="nav navbar-nav">
+		            <li class="active">
+		            	<div class="row icon-row">
+		            		<div class="col-md-2">
+		            			<img src="/static/images/all-songs.png" width="32px" height="32px">
+		            		</div>
+		            		<div class="col-md-8">
+			            		<a href="#" class="icon-text">All Songs</a>
+			            	</div>
+		            	</div>
+	            	</li>
+		            <li class="active">
+		            	<div class="row icon-row">
+		            		<div class="col-md-2">
+		            			<img src="/static/images/song-pop.jpg" width="32px" height="32px">
+		            		</div>
+		            		<div class="col-md-8">
+			            		<a href="#" class="icon-text">Pop</a>
+			            	</div>
+		            	</div>
+	            	</li>
+		            <li class="active">
+		            	<div class="row icon-row">
+		            		<div class="col-md-2">
+		            			<img src="/static/images/rock-song.png" width="32px" height="32px">
+		            		</div>
+		            		<div class="col-md-8">
+			            		<a href="#" class="icon-text">Rock</a>
+			            	</div>
+		            	</div>
+	            	</li>
+		            <li class="active">
+		            	<div class="row icon-row">
+		            		<div class="col-md-2">
+		            			<img src="/static/images/hiphop-song.jpg" width="32px" height="32px">
+		            		</div>
+		            		<div class="col-md-8">
+			            		<a href="#" class="icon-text">Hip Hop</a>
+			            	</div>
+		            	</div>
+	            	</li>
+		            <li class="active">
+		            	<div class="row icon-row">
+		            		<div class="col-md-2">
+		            			<img src="/static/images/country-song.jpg" width="32px" height="32px">
+		            		</div>
+		            		<div class="col-md-8">
+			            		<a href="#" class="icon-text">Country</a>
+			            	</div>
+		            	</div>
+	            	</li>
+
+		          </ul>
+		        </div><!--/.nav-collapse -->
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-md-8 main-part">
 			<div class="row">
 				<div class="col-md-3">
 					<div class="row"><b>Genre</b></div>
-					<img src="/static/images/list-icon.png" height="40px" width="40px">
+					<img src="/static/images/list-icon.png" height="40px" width="40px" class="genre-icon">
 				</div>
 				<div class="col-md-6 song-and-artist">
 					<div class="row song-name">{{topSong}}</div>
@@ -68,19 +139,6 @@
 					<div class="row like-text">Likes</div>
 				</div>
 			</div>
-<!-- 			<div class="row">
-				<div class="music-carousal">
-					<div>
-						<img src="/static/images/cover1.jpg" class="song-covers cover1" height="200px" width="200px">
-						<div></div>
-					</div>
-					<img src="/static/images/cover2.jpg" class="song-covers cover2" height="200px" width="200px">
-					<img src="/static/images/cover3.jpg" class="song-covers cover3" height="200px" width="200px">
-					<img src="/static/images/cover4.jpg" class="song-covers cover4" height="200px" width="200px">
-					<img src="/static/images/cover5.jpg" class="song-covers cover5" height="200px" width="200px">
-				</div>
-			</div>
-			<div></div> -->
 			<div class="row">
 	          	<div class="wrap">
 					<div id="tinderslide">
@@ -89,7 +147,8 @@
 		            		{% for s in songs %}
 	        	        	<li class="pane1">
 	        	        		<img src="/static/images/play.ico" class="play-icon">
-			                    <div class="song-file"><audio><source src="{{s.songFile}}"></audio></div>
+			                    <div class="song-file">{{s.songFile}}
+			                    </div>
 	        	        		<img src="/static/images/pause.png" class="pause-icon">
 		                    	<div class="img song-cover" id="{{s.cover}}" style="background: url('{{s.cover}}') no-repeat scroll center center; background-size: cover;"></div>
 		                    	<div class="song-name-artist-name-sub">{{s.songName}}##{{s.artistName}}##{{s.numberOfLikes}}</div>
@@ -97,34 +156,6 @@
 			                    <div class="dislike"></div>
 		                	</li>
 		                	{% endfor %}
-<!-- 			                <li class="pane2">
-	        	        		<img src="/static/images/play.ico" class="play-icon">
-			                    <div class="img"></div>
-			                    <div>San Francisco</div>
-			                    <div class="like"></div>
-			                    <div class="dislike"></div>
-	                		</li>
-			                <li class="pane3">
-	        	        		<img src="/static/images/play.ico" class="play-icon">
-			                    <div class="img"></div>
-			                    <div>Chicago</div>
-			                    <div class="like"></div>
-			                    <div class="dislike"></div>
-			                </li>
-			                <li class="pane4">
-	        	        		<img src="/static/images/play.ico" class="play-icon">
-			                    <div class="img"></div>
-			                    <div>New York</div>
-			                    <div class="like"></div>
-			                    <div class="dislike"></div>
-			                </li>
-			                <li class="pane5">
-	        	        		<img src="/static/images/play.ico" class="play-icon">
-			                    <div class="img"></div>
-			                    <div>Beach</div>
-			                    <div class="like"></div>
-			                    <div class="dislike"></div>
-			                </li> -->
             			</ul>
         			</div>
         		</div>
@@ -140,6 +171,36 @@
 			<div class="row footer">
 
 			</div>
+		  </div>
+		  		  <div class="col-md-2 sidebar-custom-right">
+		    <div class="sidebar-nav">
+		      <div class="navbar navbar-default" role="navigation">
+		        <div class="navbar-header">
+		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <span class="visible-xs navbar-brand">Sidebar menu</span>
+		        </div>
+		        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+		          <ul class="nav navbar-nav">
+		            <li class="active">
+		            	<audio controls class="audio-right-nav">
+		            		<source src="" class="mp3-source">
+		            	</audio>
+		            </li>
+		            <li><a href="#">Menu Item 2</a></li>
+		            <li><a href="#">Menu Item 3</a></li>
+		            <li><a href="#">Menu Item 4</a></li>
+		            <li><a href="#">Reviews <span class="badge">1,118</span></a></li>
+		          </ul>
+		        </div><!--/.nav-collapse -->
+		      </div>
+		    </div>
+		  </div>
+
 		</div>
     <!-- jQuery lib -->
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
