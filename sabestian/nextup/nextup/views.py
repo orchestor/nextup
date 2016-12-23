@@ -20,9 +20,15 @@ def home(request):
 				temp["songFile"] = s.songFile.url
 			else:
 				temp["songFile"] = s.songFile
+			temp["numberOfLikes"] = s.numberOfLikes
 			responseArr.append(temp)
-		print(responseArr[-1])
-		return render(request, displayPage, {'songs': responseArr, 'topSong': responseArr[-1]["songName"], 'topArtist': responseArr[-1]["artistName"]})
+		print(responseArr)
+		return render(request, displayPage, {
+			'songs': responseArr,
+			'topSong': responseArr[-1]["songName"],
+			'topArtist': responseArr[-1]["artistName"],
+			'topLikes': responseArr[-1]["numberOfLikes"]
+		})
 	else:
 		displayPage = "user-login.html"
 

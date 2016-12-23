@@ -8,7 +8,8 @@ window.onload = function() {
 	for(var i = 0; i < songAndArtistNames.length; i++) {
 		temp = {
 			'songName': ($(songAndArtistNames[i]).text()).split("##")[0],
-			'artistName': ($(songAndArtistNames[i]).text()).split("##")[1]
+			'artistName': ($(songAndArtistNames[i]).text()).split("##")[1],
+			'numberOfLikes': ($(songAndArtistNames[i]).text()).split("##")[2]
 		}
 		resultArr.push(temp);
 	}
@@ -19,9 +20,11 @@ window.onload = function() {
 	    if (count <= resultArr.length) {
 			$('.song-name').html(resultArr[resultArr.length - count]['songName']);
 			$('.artist-name').html(resultArr[resultArr.length - count]['artistName']);
-        } else {
+			$('.like-badge').html(resultArr[resultArr.length - count]['numberOfLikes']);
+         } else {
 			$('.song-name').html("");
 			$('.artist-name').html("");				
+			$('.like-badge').html("");
         }
         console.log(count)
 		// count += 1;
@@ -35,12 +38,34 @@ window.onload = function() {
 	});
 
 	$('.like').click(function() {
+		var csrftoken = Cookies.get('csrftoken');
+		$.ajaxSetup({
+		    beforeSend: function(xhr, settings) {
+		        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		        }
+		    }
+		});
+		$.ajax({
+			type: 'POST',
+			url: '/likeSong',
+			data: {
+				'songName': $('.song-name').html(),
+				'artistName': $('.artist-name').html()
+			},
+			success: function(response) {
+				console.log(response)	
+			}
+		});
 	    if (count <= resultArr.length) {
 			$('.song-name').html(resultArr[resultArr.length - count]['songName']);
 			$('.artist-name').html(resultArr[resultArr.length - count]['artistName']);
+			$('.like-badge').html(resultArr[resultArr.length - count]['numberOfLikes']);
+        	console.log(resultArr[resultArr.length - count])
         } else {
 			$('.song-name').html("");
 			$('.artist-name').html("");				
+			$('.like-badge').html("");
         }
         console.log(count)
 		// count += 1;
@@ -63,15 +88,19 @@ window.onload = function() {
 	        if (count <= resultArr.length) {
 				$('.song-name').html(resultArr[resultArr.length - count]['songName']);
 				$('.artist-name').html(resultArr[resultArr.length - count]['artistName']);
-	        } else {
+				$('.like-badge').html(resultArr[resultArr.length - count]['numberOfLikes']);
+ 	        } else {
 				$('.song-name').html("");
 				$('.artist-name').html("");				
+				$('.like-badge').html("");
 	        }
     		var audio = $('audio');
 			for(var i = 0; i < audio.length; i++){
 				audio[i].pause();
 			}
 			$('.container-2').css("background", "#FFEAB3");
+			$('.pause-icon').hide();
+			$('.play-icon').show();
 
 			count += 1;
 
@@ -81,18 +110,42 @@ window.onload = function() {
 		    // set the status text
 	        // $('#status').html('Like image ' + (item.index()+1));
 	        console.log(count)
+			var csrftoken = Cookies.get('csrftoken');
+			$.ajaxSetup({
+			    beforeSend: function(xhr, settings) {
+			        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+			            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+			        }
+			    }
+			});
+			$.ajax({
+				type: 'POST',
+				url: '/likeSong',
+				data: {
+					'songName': $('.song-name').html(),
+					'artistName': $('.artist-name').html()
+				},
+				success: function(response) {
+					console.log(response)	
+				}
+			});
+
     	    if (count <= resultArr.length) {
 				$('.song-name').html(resultArr[resultArr.length - count]['songName']);
 				$('.artist-name').html(resultArr[resultArr.length - count]['artistName']);
-	        } else {
+				$('.like-badge').html(resultArr[resultArr.length - count]['numberOfLikes']);
+ 	        } else {
 				$('.song-name').html("");
 				$('.artist-name').html("");				
-	        }
+				$('.like-badge').html("");
+        	}
 			var audio = $('audio');
 			for(var i = 0; i < audio.length; i++){
 				audio[i].pause();
 			}
 			$('.container-2').css("background", "#FFEAB3");
+			$('.pause-icon').hide();
+			$('.play-icon').show();
 
 			count += 1;
 	    },
@@ -112,3 +165,7 @@ window.onload = function() {
 	});
 }
 
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}

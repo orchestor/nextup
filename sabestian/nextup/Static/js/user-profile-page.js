@@ -19,7 +19,7 @@ document.onready = function() {
 			var audio = $($(this).find('audio'));
 			console.log($(audio[0]))
 			audio[0].play();
-			$('.container-2').css("background", "url(" + $($(this).find('.song-cover')).html() + ")");
+			$('.container-2').css("background", "url(" + $($(this).find('.song-cover')).attr("id") + ")");
 			$('.container-2').css("background-size", "cover");
 		} else {
 			console.log("in pause")

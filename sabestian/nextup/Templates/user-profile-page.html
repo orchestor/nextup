@@ -62,7 +62,7 @@
 					<div class="row">
 						<div class="heart-like-container">
 							<img src="/static/images/heart.png" height="100px" width="100px" class="like-image">
-							<span class="badge like-badge">42</span>
+							<span class="badge like-badge">{{topLikes}}</span>
 						</div>
 					</div>
 					<div class="row like-text">Likes</div>
@@ -91,8 +91,8 @@
 	        	        		<img src="/static/images/play.ico" class="play-icon">
 			                    <div class="song-file"><audio><source src="{{s.songFile}}"></audio></div>
 	        	        		<img src="/static/images/pause.png" class="pause-icon">
-		                    	<div class="img song-cover" style="background: url('{{s.cover}}') no-repeat scroll center center; background-size: cover;">{{s.cover}}</div>
-		                    	<div class="song-name-artist-name-sub">{{s.songName}}##{{s.artistName}}</div>
+		                    	<div class="img song-cover" id="{{s.cover}}" style="background: url('{{s.cover}}') no-repeat scroll center center; background-size: cover;"></div>
+		                    	<div class="song-name-artist-name-sub">{{s.songName}}##{{s.artistName}}##{{s.numberOfLikes}}</div>
 			                    <div class="like"></div>
 			                    <div class="dislike"></div>
 		                	</li>

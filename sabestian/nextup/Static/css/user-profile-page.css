@@ -132,3 +132,7 @@
     top: 30px;
     left: 500px;
 }
+
+.song-file {
+	display: none;
+}

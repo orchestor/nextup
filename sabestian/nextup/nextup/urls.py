@@ -19,6 +19,7 @@ from django.conf import settings
 from django.contrib import admin
 from nextup.views import home, successSignup
 from authentication.views import login, signup, checkUserhandle
+from music.views import likeSong
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +28,5 @@ urlpatterns = [
     url(r'^signup', signup),
     url(r'^checkUserhandle', checkUserhandle),
     url(r'^success-signup$', successSignup),
+    url(r'^likeSong$', likeSong),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
