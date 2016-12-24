@@ -68,8 +68,8 @@
 		            		<div class="col-md-2">
 		            			<img src="/static/images/all-songs.png" width="32px" height="32px">
 		            		</div>
-		            		<div class="col-md-8">
-			            		<a href="#" class="icon-text">All Songs</a>
+		            		<div class="col-md-9">
+			            		<a href="/?genre=all" class="icon-text">All Songs</a>
 			            	</div>
 		            	</div>
 	            	</li>
@@ -79,7 +79,7 @@
 		            			<img src="/static/images/song-pop.jpg" width="32px" height="32px">
 		            		</div>
 		            		<div class="col-md-8">
-			            		<a href="#" class="icon-text">Pop</a>
+			            		<a href="/?genre=pop" class="icon-text">Pop</a>
 			            	</div>
 		            	</div>
 	            	</li>
@@ -89,7 +89,7 @@
 		            			<img src="/static/images/rock-song.png" width="32px" height="32px">
 		            		</div>
 		            		<div class="col-md-8">
-			            		<a href="#" class="icon-text">Rock</a>
+			            		<a href="/?genre=rock" class="icon-text">Rock</a>
 			            	</div>
 		            	</div>
 	            	</li>
@@ -99,7 +99,7 @@
 		            			<img src="/static/images/hiphop-song.jpg" width="32px" height="32px">
 		            		</div>
 		            		<div class="col-md-8">
-			            		<a href="#" class="icon-text">Hip Hop</a>
+			            		<a href="/?genre=hiphop" class="icon-text">Hip Hop</a>
 			            	</div>
 		            	</div>
 	            	</li>
@@ -109,7 +109,7 @@
 		            			<img src="/static/images/country-song.jpg" width="32px" height="32px">
 		            		</div>
 		            		<div class="col-md-8">
-			            		<a href="#" class="icon-text">Country</a>
+			            		<a href="/?genre=country" class="icon-text">Country</a>
 			            	</div>
 		            	</div>
 	            	</li>
@@ -119,7 +119,7 @@
 		      </div>
 		    </div>
 		  </div>
-		  <div class="col-md-8 main-part">
+		  <div class="col-md-12 main-part">
 			<div class="row">
 				<div class="col-md-3">
 					<div class="row"><b>Genre</b></div>
@@ -172,7 +172,7 @@
 
 			</div>
 		  </div>
-		  		  <div class="col-md-2 sidebar-custom-right">
+  		  <div class="col-md-4 sidebar-custom-right">
 		    <div class="sidebar-nav">
 		      <div class="navbar navbar-default" role="navigation">
 		        <div class="navbar-header">
@@ -186,15 +186,33 @@
 		        </div>
 		        <div class="navbar-collapse collapse sidebar-navbar-collapse">
 		          <ul class="nav navbar-nav">
-		            <li class="active">
-		            	<audio controls class="audio-right-nav">
-		            		<source src="" class="mp3-source">
-		            	</audio>
+		            <li class="active audio-parent">
+		            	<div class="row">
+			            	<img src="{{topCover}}" width="100px" height="100px" class="audio-player-cover">
+						</div>
+						<div class="row">
+			            	<audio controls class="audio-right-nav">
+			            		<source src="" class="mp3-source">
+			            	</audio>
+		            	</div>
 		            </li>
-		            <li><a href="#">Menu Item 2</a></li>
-		            <li><a href="#">Menu Item 3</a></li>
-		            <li><a href="#">Menu Item 4</a></li>
-		            <li><a href="#">Reviews <span class="badge">1,118</span></a></li>
+		            <li class="also-liked"><a href="#">Also Liked</a></li>
+		            {% for ls in alsoLiked %}
+		            <li class="audio-parent"><a href="#">
+		            	<div class="row">
+		            		<div class="col-md-4"><img src="{{ls.cover}}" width="100px" height="100px"></div>
+		            		<div class="col-md-8">
+		            			<div class="row">
+		            				{{ls.songName}}
+		            			</div>
+		            			<div class="row">
+		            				{{ls.artistName}}
+		            			</div>
+		            		</div>
+		            	</div>
+		            	<div class="song-file-like hidden">{{ls.songFile}}</div>
+		            </a></li>
+		            {% endfor %}
 		          </ul>
 		        </div><!--/.nav-collapse -->
 		      </div>

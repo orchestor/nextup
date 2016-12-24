@@ -1,3 +1,7 @@
+body {
+	overflow: auto !important;
+}
+
 .row {
 	margin-left: 0px !important;
 	margin-right: 0px !important;
@@ -154,5 +158,25 @@
 }
 
 .audio-right-nav {
-	width: 160px;
+	width: 100%;
+}
+
+.audio-parent {
+	width: 100%;
+}
+
+.also-liked {
+	width: 100%;
+}
+
+.also-liked a {
+	text-align: center;
+}
+
+.sidebar-custom-right {
+	display: none;
+}
+
+.sidebar-custom {
+	display: none;
 }

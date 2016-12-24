@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from authentication.models import userDetails 
-from music.models import song
+from music.models import song, likedSongs
 from django.http import HttpResponse,Http404
 import json
 
@@ -22,11 +22,17 @@ def likeSong(request):
 			message = "Song for this artist does not exist !"
 		else:
 			songObj = songObj[0]
-			songObj.numberOfLikes += 1
-			print(songObj)
-			songObj.save()
-			status = 1
-			message = "Song liked !"
+			isAlreadyLiked = likedSongs.objects.filter(song = songObj, user = userDetailsObj)
+			if (len(isAlreadyLiked) > 0):
+				status = 1
+				message = "Song Already liked !"
+			else:
+				likedSongs.objects.create(song = songObj, user = userDetailsObj)
+				songObj.numberOfLikes += 1
+				print(songObj)
+				songObj.save()
+				status = 1
+				message = "Song liked !"
 	return HttpResponse(
 		json.dumps(
 			{

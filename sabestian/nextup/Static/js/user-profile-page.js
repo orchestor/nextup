@@ -18,11 +18,11 @@ document.onready = function() {
 		if (!leftBar && !rightBar) {
 			$('.main-part').css("width", "100%");
 		} else if(!leftBar && rightBar) {
-			$('.main-part').css("width", "60%");			
+			$('.main-part').css("width", "66%");			
 		} else if (leftBar && !rightBar) {
-			$('.main-part').css("width", "60%");
+			$('.main-part').css("width", "80%");
 		} else {
-			$('.main-part').css("width", "60%");
+			$('.main-part').css("width", "50%");
 		}
 	}
 
@@ -33,8 +33,8 @@ document.onready = function() {
 			$('.sidebar-custom').show();
 		} else {
 			$('.sidebar-custom').hide();
-			increase_width();
 			leftBar = false;
+			increase_width();
 		}
 	});
 
@@ -45,8 +45,8 @@ document.onready = function() {
 			$('.sidebar-custom-right').show();
 		} else {
 			$('.sidebar-custom-right').hide();
-			increase_width();
 			rightBar = false;
+			increase_width();
 		}
 	});
 
@@ -77,4 +77,19 @@ document.onready = function() {
 		}
 	});
 
+	$('.audio-parent').click(function() {
+			$('.pause-icon').hide();
+			$('.play-icon').show();
+			var songPath = $($(this).find('.song-file-like')).html();
+			// console.log($(audio[0]))
+			// audio[0].play();
+			console.log(songPath)
+			var audio = $('audio')[0];
+			var source = $('source')[0];
+			source.src = songPath;
+			audio.load();
+			audio.play();
+			$('.audio-player-cover').attr("src", $($(this).find('img')).attr("src"));
+			$('.container-2').css("background", "#FFEAB3");
+	});
 }
