@@ -9,9 +9,7 @@ from authentication.models import userDetails
 def home(request):
 	if (request.user.is_authenticated()):
 		displayPage = "user-profile-page.html"
-		if (request.GET.get("genre") == "all"):
-			songs = song.objects.filter()
-		elif (request.GET.get("genre") == "pop"):
+		if (request.GET.get("genre") == "pop"):
 			songs = song.objects.filter(genre = "Latin Pop")
 		elif (request.GET.get("genre") == "rock"):
 			songs = song.objects.filter(genre = "Rock/Oldies")
@@ -19,6 +17,8 @@ def home(request):
 			songs = song.objects.filter(genre = "Hip-Hop")
 		elif (request.GET.get("genre") == "country"):
 			songs = song.objects.filter(genre = "Country")
+		else:
+			songs = song.objects.filter()
 		# print(songs[0].songName)
 		responseArr = []
 		for s in songs:
@@ -79,3 +79,6 @@ def home(request):
 
 def successSignup(request):
 	return render(request, "success-signup.html")
+
+def expansion(request):
+	return render(request, "expansion.html")

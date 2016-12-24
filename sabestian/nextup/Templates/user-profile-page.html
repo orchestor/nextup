@@ -7,6 +7,7 @@
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<link rel="stylesheet" href="/static/css/header.css">
 
 		<link rel="stylesheet" href="/static/css/user-profile-page.css">
 	    <link rel="stylesheet" type="text/css" href="/static/css/jTinder.css">
@@ -18,36 +19,7 @@
 		<script type="text/javascript" src="/static/js/user-profile-page.js"></script>
 	</head>
 	<body>
-		<div class="row header">
-			<div class="col-md-8">
-				<div class="col-md-2">
-					<img src="/static/images/logo.png" class="logo">
-				</div>
-				<div class="col-md-2 heading-container">
-					<span class="label label-warning headings">Discover</span>
-				</div>
-				<div class="col-md-2 heading-container">
-					<span class="label label-warning headings">What's Hot</span>
-				</div>
-				<div class="col-md-2 heading-container">
-					<span class="label label-warning headings">Expansion</span>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="col-md-3 icons-container">
-					<img src="/static/images/message.png" height="35px" width="35px">
-				</div>
-				<div class="col-md-3 icons-container">
-					<img src="/static/images/bell.png" height="35px" width="35px">
-				</div>
-				<div class="col-md-3 icons-container">
-					<img src="/static/images/coins.png" height="35px" width="35px">
-				</div>
-				<div class="col-md-3 icons-container">
-					<img src="/static/images/message.png" height="35px" width="35px">
-				</div>
-			</div>
-		</div>
+		{% include 'header.html' %}
 		<div class="row container-2">
 		  <div class="col-md-2 sidebar-custom">
 		    <div class="sidebar-nav">

@@ -38,7 +38,7 @@ document.onready = function() {
 		}
 	});
 
-	$('.like-image').click(function() {
+	$('.heart-like-container').click(function() {
 		if ($('.sidebar-custom-right').css("display") === "none") {
 			rightBar = true;
 			increase_width();
@@ -91,5 +91,9 @@ document.onready = function() {
 			audio.play();
 			$('.audio-player-cover').attr("src", $($(this).find('img')).attr("src"));
 			$('.container-2').css("background", "#FFEAB3");
+	});
+
+	$('.expansion').click(function() {
+		window.location.href = "/expansion";
 	});
 }

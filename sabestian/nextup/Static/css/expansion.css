@@ -1,0 +1,39 @@
+.header-breaker {
+	background: #EEEEEE;
+	height: 5px;
+}
+
+.sub-container {
+	position: relative;
+}
+
+.image-map {
+	position: absolute;
+}
+
+.trending {
+	position: absolute;
+	top: 3em;
+	left: 69em;
+}
+
+.image-map img {
+	margin-top: 7%;
+	margin-left: 20%;
+}
+
+.search {
+	margin-top: 1%;
+	margin-left: 1%;
+}
+
+.usa {
+	position: absolute;
+    left: 15em;
+    font-size: 30px;
+    font-family: cursive;
+}
+
+.likes img {
+	margin-top: 80%;
+}
