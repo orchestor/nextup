@@ -82,3 +82,21 @@ def successSignup(request):
 
 def expansion(request):
 	return render(request, "expansion.html")
+
+def northWest(request):
+	return render(request, "north-west.html")
+
+def southWest(request):
+	return render(request, "south-west.html")
+
+def northCentral(request):
+	return render(request, "north-central.html")
+
+def southCentral(request):
+	return render(request, "south-central.html")
+
+def northEast(request):
+	return render(request, "north-east.html")
+
+def southEast(request):
+	return render(request, "south-east.html")
