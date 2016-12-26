@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+	<head>
+	{% include 'block1.html' %}
+	</head>
+	<body>
+		{% include 	'header.html' %}
+		<div class="row header-breaker"></div>
+		<div class="row sub-container">
+		{% include 'block2.html' %}
+			<div class="usa">
+				<span>Idaho</span> 
+			</div>
+			<div class="image-map">
+				<img src="/static/images/Northwestern/Idaho.png" usemap="#region">
+				<map name="region">
+				  <area shape="poly" coords="14, 4, 154, 4, 142, 238, 20, 236" alt="Idaho Region 1" href="/idahoR1">
+				  <area shape="poly" coords="44, 244, 164, 244, 170, 496, 14, 496" alt="Idaho Region 2" href="/idahoR2">
+				  <area shape="poly" coords="175, 246, 334, 332, 338, 494, 172, 496" alt="Idaho Region 3" href="/idahoR3">
+				</map>
+			</div>
+		{% include 'block3.html' %}
+	</div>
+	</body>
+</html>

@@ -100,3 +100,156 @@ def northEast(request):
 
 def southEast(request):
 	return render(request, "south-east.html")
+
+def alabama(request):
+	return render(request, 'alabama.html')
+
+def alaska(request):
+	return render(request, 'alaska.html')
+
+def arizona(request):
+	return render(request, 'arizona.html')
+
+def arkansas(request):
+	return render(request, 'arkansas.html')
+
+def california(request):
+	return render(request, 'california.html')
+
+def colorado(request):
+	return render(request, 'colorado.html')
+
+def connecticut(request):
+	return render(request, 'connecticut.html')
+
+def delaware(request):
+	return render(request, 'delaware.html')
+
+def districtofColumbia(request):
+	return render(request, 'districtofColumbia.html')
+
+def florida(request):
+	return render(request, 'florida.html')
+
+def georgia(request):
+	return render(request, 'georgia.html')
+
+def hawaii(request):
+	return render(request, 'hawaii.html')
+
+def idaho(request):
+	return render(request, 'idaho.html')
+
+def illinois(request):
+	return render(request, 'illinois.html')
+
+def indiana(request):
+	return render(request, 'indiana.html')
+
+def iowa(request):
+	return render(request, 'iowa.html')
+
+def kansas(request):
+	return render(request, 'kansas.html')
+
+def kentucky(request):
+	return render(request, 'kentucky.html')
+
+def louisiana(request):
+	return render(request, 'louisiana.html')
+
+def maine(request):
+	return render(request, 'maine.html')
+
+def maryland(request):
+	return render(request, 'maryland.html')
+
+def massachusetts(request):
+	return render(request, 'massachusetts.html')
+
+def michigan(request):
+	return render(request, 'michigan.html')
+
+def minnesota(request):
+	return render(request, 'minnesota.html')
+
+def mississippi(request):
+	return render(request, 'mississippi.html')
+
+def missouri(request):
+	return render(request, 'missouri.html')
+
+def montana(request):
+	return render(request, 'montana.html')
+
+def nebraska(request):
+	return render(request, 'nebraska.html')
+
+def nevada(request):
+	return render(request, 'nevada.html')
+
+def newHampshire(request):
+	return render(request, 'newHampshire.html')
+
+def newJersey(request):
+	return render(request, 'newJersey.html')
+
+def newMexico(request):
+	return render(request, 'newMexico.html')
+
+def newYork(request):
+	return render(request, 'newYork.html')
+
+def northCarolina(request):
+	return render(request, 'northCarolina.html')
+
+def northDakota(request):
+	return render(request, 'northDakota.html')
+
+def ohio(request):
+	return render(request, 'ohio.html')
+
+def oklahoma(request):
+	return render(request, 'oklahoma.html')
+
+def oregon(request):
+	return render(request, 'oregon.html')
+
+def pennsylvania(request):
+	return render(request, 'pennsylvania.html')
+
+def rhodeIsland(request):
+	return render(request, 'rhodeIsland.html')
+
+def southCarolina(request):
+	return render(request, 'southCarolina.html')
+
+def southDakota(request):
+	return render(request, 'southDakota.html')
+
+def tennessee(request):
+	return render(request, 'tennessee.html')
+
+def texas(request):
+	return render(request, 'texas.html')
+
+def utah(request):
+	return render(request, 'utah.html')
+
+def vermont(request):
+	return render(request, 'vermont.html')
+
+def virginia(request):
+	return render(request, 'virginia.html')
+
+def washington(request):
+	return render(request, 'washington.html')
+
+def westVirginia(request):
+	return render(request, 'westVirginia.html')
+
+def wisconsin(request):
+	return render(request, 'wisconsin.html')
+
+def wyoming(request):
+	return render(request, 'wyoming.html')

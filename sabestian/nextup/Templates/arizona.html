@@ -1,0 +1,24 @@
+<!Doctype html>
+<html>
+	<head>
+	{% include 'block1.html' %}
+	</head>
+	<body>
+		{% include 	'header.html' %}
+		<div class="row header-breaker"></div>
+		<div class="row sub-container">
+		{% include 'block2.html' %}
+			<div class="usa">
+				<span>Arizona</span> 
+			</div>
+			<div class="image-map">
+				<img src="/static/images/Southwest/Arizona.png" usemap="#region">
+				<map name="region">
+				  <area shape="poly" coords="18, 4, 351, 3, 349, 210, 24, 210" href="/arizonaR1">
+				  <area shape="poly" coords="13, 210, 351, 217, 349, 441, 27, 403" href="/arizonaR2">
+				</map>
+			</div>
+		{% include 'block3.html' %}
+	</div>
+	</body>
+</html>

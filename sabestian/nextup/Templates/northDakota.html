@@ -1,0 +1,20 @@
+<!Doctype html>
+<html>
+	<head>
+	{% include 'block1.html' %}
+	</head>
+	<body>
+		{% include 	'header.html' %}
+		<div class="row header-breaker"></div>
+		<div class="row sub-container">
+		{% include 'block2.html' %}
+			<div class="usa">
+				<span>North Dakota</span> 
+			</div>
+			<div class="image-map">
+				<img src="/static/images/North central/North Dakota.png">
+			</div>
+		{% include 'block3.html' %}
+	</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+	<head>
+	{% include 'block1.html' %}
+	</head>
+	<body>
+		{% include 	'header.html' %}
+		<div class="row header-breaker"></div>
+		<div class="row sub-container">
+		{% include 'block2.html' %}
+			<div class="usa">
+				<span>California</span> 
+			</div>
+			<div class="image-map">
+				<img src="/static/images/Southwest/California.png" usemap="#region">
+				<map name="region">
+				  <area shape="poly" coords="13, 3, 196, 1, 198, 141, 34, 142" href="/californiaR1">
+				  <area shape="poly" coords="34, 142, 195, 142, 364, 279, 124, 282" href="/californiaR2">
+				  <area shape="poly" coords="124, 282, 363, 276, 442, 432, 208, 438" href="/californiaR3">
+				</map>
+			</div>
+		{% include 'block3.html' %}
+	</div>
+	</body>
+</html>

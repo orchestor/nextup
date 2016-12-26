@@ -1,37 +1,15 @@
 <!Doctype html>
 <html>
 	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<link rel="stylesheet" href="/static/css/header.css">
-
-		<link rel="stylesheet" href="/static/css/expansion.css">
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/static/js/js.cookie.js"></script>
+	{% include 'block1.html' %}
 	</head>
 	<body>
 		{% include 	'header.html' %}
 		<div class="row header-breaker"></div>
 		<div class="row sub-container">
-			<div class="search">
-				<form class="form-inline">
-				  <div class="form-group">
-				    <label class="sr-only" for="search-box">Search</label>
-				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="search-box" placeholder="Zip, Area, State">
-				    </div>
-				  </div>
-				  <button type="submit" class="btn btn-primary">Search</button>
-				</form>
-			</div>
+		{% include 'block2.html' %}
 			<div class="usa">
-				<span>The United States Of America</span> 
+				<span>South East America</span> 
 			</div>
 			<div class="image-map">
 				<img src="/static/images/southeast.png" usemap="#region">
@@ -46,18 +24,7 @@
   				  <area shape="poly" coords="179, 197, 289, 187, 337, 286, 321, 298, 243, 205, 183, 209" alt="Florida" href="/florida">
 				</map>
 			</div>
-			<div class="col-md-3 trending">
-				<div class="row">
-					<img src="/static/images/fire.png" width="40px" height="40px" class="col-md-offset-3">
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="row">bhavya1995</div>
-						<div class="row"><img src="/static/images/self.jpg" width="32px" height="32px"></div>
-					</div>
-					<div class="col-md-2 likes"><img src="/static/images/heart.png" width="35px" height="35px"></div>
-				</div>
-			</div>
+			{% include 'block3.html' %}
 		</div>
 	</body>
 </html>
