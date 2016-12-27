@@ -104,20 +104,53 @@ def southEast(request):
 def alabama(request):
 	return render(request, 'alabama.html')
 
+def alabamaR1(request):
+	return render(request, 'alabamaR1.html')
+
+def alabamaR2(request):
+	return render(request, 'alabamaR2.html')
+
 def alaska(request):
 	return render(request, 'alaska.html')
 
 def arizona(request):
 	return render(request, 'arizona.html')
 
+def arizonaR1(request):
+	return render(request, 'arizonaR1.html')
+
+def arizonaR2(request):
+	return render(request, 'arizonaR2.html')
+
 def arkansas(request):
 	return render(request, 'arkansas.html')
+
+def arkansasR1(request):
+	return render(request, 'arkansasR1.html')
+
+def arkansasR2(request):
+	return render(request, 'arkansasR2.html')
 
 def california(request):
 	return render(request, 'california.html')
 
+def californiaR1(request):
+	return render(request, 'californiaR1.html')
+
+def californiaR2(request):
+	return render(request, 'californiaR2.html')
+
+def californiaR3(request):
+	return render(request, 'californiaR3.html')
+
 def colorado(request):
 	return render(request, 'colorado.html')
+
+def coloradoR1(request):
+	return render(request, 'coloradoR1.html')
+
+def coloradoR2(request):
+	return render(request, 'coloradoR2.html')
 
 def connecticut(request):
 	return render(request, 'connecticut.html')
@@ -131,14 +164,38 @@ def districtofColumbia(request):
 def florida(request):
 	return render(request, 'florida.html')
 
+def floridaR1(request):
+	return render(request, 'floridaR1.html')
+
+def floridaR2(request):
+	return render(request, 'floridaR2.html')
+
+def floridaR3(request):
+	return render(request, 'floridaR3.html')
+
 def georgia(request):
 	return render(request, 'georgia.html')
+
+def georgiaR1(request):
+	return render(request, 'georgiaR1.html')
+
+def georgiaR2(request):
+	return render(request, 'georgiaR2.html')
 
 def hawaii(request):
 	return render(request, 'hawaii.html')
 
 def idaho(request):
 	return render(request, 'idaho.html')
+
+def idahoR1(request):
+	return render(request, 'idahoR1.html')
+
+def idahoR2(request):
+	return render(request, 'idahoR2.html')
+
+def idahoR3(request):
+	return render(request, 'idahoR3.html')
 
 def illinois(request):
 	return render(request, 'illinois.html')
@@ -148,6 +205,15 @@ def indiana(request):
 
 def iowa(request):
 	return render(request, 'iowa.html')
+
+def iowaR1(request):
+	return render(request, 'iowaR1.html')
+
+def iowaR2(request):
+	return render(request, 'iowaR2.html')
+
+def iowaR3(request):
+	return render(request, 'iowaR3.html')
 
 def kansas(request):
 	return render(request, 'kansas.html')
@@ -166,6 +232,12 @@ def maryland(request):
 
 def massachusetts(request):
 	return render(request, 'massachusetts.html')
+
+def massachusettsR1(request):
+	return render(request, 'massachusettsR1.html')
+
+def massachusettsR2(request):
+	return render(request, 'massachusettsR2.html')
 
 def michigan(request):
 	return render(request, 'michigan.html')
@@ -200,6 +272,15 @@ def newMexico(request):
 def newYork(request):
 	return render(request, 'newYork.html')
 
+def newYorkR1(request):
+	return render(request, 'newYorkR1.html')
+
+def newYorkR2(request):
+	return render(request, 'newYorkR2.html')
+
+def newYorkR3(request):
+	return render(request, 'newYorkR3.html')
+
 def northCarolina(request):
 	return render(request, 'northCarolina.html')
 
@@ -232,6 +313,15 @@ def tennessee(request):
 
 def texas(request):
 	return render(request, 'texas.html')
+
+def texasR1(request):
+	return render(request, 'texasR1.html')
+
+def texasR2(request):
+	return render(request, 'texasR2.html')
+
+def texasR3(request):
+	return render(request, 'texasR3.html')
 
 def utah(request):
 	return render(request, 'utah.html')
