@@ -19,7 +19,7 @@ from django.conf import settings
 from django.contrib import admin
 # from nextup.views import home, successSignup, expansion, northWest, southWest, northCentral, southCentral, northEast, southEast, alabama, alaska, arizona, arizonaR1, arizonaR2, arkansas, california, californiaR1, californiaR2, californiaR3, colorado, coloradoR1, coloradoR2, connecticut, delaware, districtofColumbia, florida, georgia, hawaii, idaho, idahoR1, idahoR2, idahoR3, illinois, indiana, iowa, iowaR1, iowaR2, iowaR3, kansas, kentucky, louisiana, maine, maryland, massachusetts, michigan, minnesota, mississippi, missouri, montana, nebraska, nevada, newHampshire, newJersey, newMexico, newYork, northCarolina, northDakota, ohio, oklahoma, oregon, pennsylvania, rhodeIsland, southCarolina, southDakota, tennessee, texas, utah, vermont, virginia, washington, westVirginia, wisconsin, wyoming
 from nextup.views import *
-from authentication.views import login, signup, checkUserhandle
+from authentication.views import login, signup, checkUserhandle, userProfile
 from music.views import likeSong
 
 urlpatterns = [
@@ -118,4 +118,5 @@ urlpatterns = [
     url(r'^westVirginia$', westVirginia),
     url(r'^wisconsin$', wisconsin),
     url(r'^wyoming$', wyoming),
+    url(r'^profile-page$', userProfile),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,7 +6,8 @@ import base64
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
-from authentication.models import userDetails
+from authentication.models import userDetails, follow
+from music.models import likedSongs
 from django.conf import settings
 
 # Create your views here.
@@ -159,3 +160,26 @@ def checkUserhandle(request):
 				"message": message
 			}), content_type="application/json")
 
+def userProfile(request):
+	if (request.user):
+		if (request.user.is_authenticated()):
+			userHandle = request.GET.get("userHandle")
+			userDetailsObject = userDetails.objects.filter(userHandle = userHandle)
+			if (len(userDetailsObject) > 0):
+				userDetailsObject = userDetailsObject[0]
+				user = userDetailsObject.user
+				temp = {
+					"profilePicture": userDetailsObject.profilePicture.url,
+					"userHandle": userDetailsObject.userHandle
+				}
+				followObject = follow.objects.filter(follower = request.user, following = user)
+				if (len(followObject) > 0):
+					temp["isFollowing"] = True
+				else:
+					temp["isFollowing"] = False
+				likedSongsArr = likedSongs.objects.filter(user = userDetailsObject)
+				temp["numberOfLikedSongs"] = len(likedSongsArr)
+				
+				if (userDetailsObject[0].type == "Artist"):
+					
+				else:

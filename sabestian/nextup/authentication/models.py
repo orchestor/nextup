@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from locality.models import areaCodeMapping
 # Create your models here.
 
 class userDetails(models.Model):
@@ -18,7 +19,15 @@ class userDetails(models.Model):
 	age = models.IntegerField()
 	gender = models.CharField(max_length = 10, choices = GENDER)
 	type = models.CharField(max_length = 10, choices = USER_TYPE)
-	areaCode = models.IntegerField()
+	areaCode = models.ForeignKey(areaCodeMapping)
+	profilePicture = models.ImageField(upload_to = "/user-profile-picture")
 
 	def __str__(self):
 		return self.userHandle
+
+class follow(models.Model):
+	follower = models.ForeignKey(User)
+	following = models.ForeignKey(User)
+
+	def __str__(self):
+		return self.follower.firstName + " is following " + self.following.firstName
