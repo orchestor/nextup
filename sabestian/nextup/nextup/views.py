@@ -8,7 +8,7 @@ from authentication.models import userDetails
 # Rendering of home page.
 def home(request):
 	if (request.user.is_authenticated()):
-		displayPage = "user-profile-page.html"
+		displayPage = "home.html"
 		if (request.GET.get("genre") == "pop"):
 			songs = song.objects.filter(genre = "Latin Pop")
 		elif (request.GET.get("genre") == "rock"):

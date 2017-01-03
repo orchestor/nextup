@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from utility_constants import *
-from django.http import HttpResponse,Http404
+from django.http import HttpResponse, Http404
 import json
 import base64
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from authentication.models import userDetails, follow
-from music.models import likedSongs
+from music.models import likedSongs, song
 from django.conf import settings
 
 # Create your views here.
@@ -169,17 +169,58 @@ def userProfile(request):
 				userDetailsObject = userDetailsObject[0]
 				user = userDetailsObject.user
 				temp = {
-					"profilePicture": userDetailsObject.profilePicture.url,
 					"userHandle": userDetailsObject.userHandle
 				}
+				if (userDetailsObject.profilePicture):
+					temp["profilePicture"] = userDetailsObject.profilePicture.url
+				else:
+					temp["profilePicture"] = ""
 				followObject = follow.objects.filter(follower = request.user, following = user)
 				if (len(followObject) > 0):
 					temp["isFollowing"] = True
 				else:
 					temp["isFollowing"] = False
-				likedSongsArr = likedSongs.objects.filter(user = userDetailsObject)
-				temp["numberOfLikedSongs"] = len(likedSongsArr)
-				
-				if (userDetailsObject[0].type == "Artist"):
-					
-				else:
+				temp["likedSongsArr"] = likedSongs.objects.filter(user = userDetailsObject)
+				temp["numberOfLikedSongs"] = len(temp["likedSongsArr"])
+				temp["numberOfFollowers"] = len(follow.objects.filter(following = user))
+				temp["numberOfFollowing"] = len(follow.objects.filter(follower = user))
+				if (userDetailsObject.type == "Artist"):
+					temp["uploadedSongsArr"] = song.objects.filter(artist = userDetailsObject)
+				print(temp)
+				return render(request, "user-profile-page.html", {"data": temp})
+	else:
+		raise Http404
+
+def follow_user(request):
+	userHandle = request.GET.get("userHandle")
+	userDetailsObject = userDetails.objects.filter(userHandle = userHandle)
+	if (len(userDetailsObject) > 0):
+		userDetailsObject = userDetailsObject[0]
+		followObject = follow.objects.filter(follower = request.user, following = userDetailsObject.user)
+		if (len(followObject) > 0):
+			pass
+		else:
+			follow.objects.create(follower = request.user, following = userDetailsObject.user)
+		return HttpResponse(
+			json.dumps(
+				{
+					"status": 1,
+					"message": "User followed"
+				}), content_type="application/json")
+
+def unfollow_user(request):
+	userHandle = request.GET.get("userHandle")
+	userDetailsObject = userDetails.objects.filter(userHandle = userHandle)
+	if (len(userDetailsObject) > 0):
+		userDetailsObject = userDetailsObject[0]
+		followObject = follow.objects.filter(follower = request.user, following = userDetailsObject.user)
+		if (len(followObject) > 0):
+			followObject[0].delete()
+		else:
+			pass
+		return HttpResponse(
+			json.dumps(
+				{
+					"status": 1,
+					"message": "User unfollowed"
+				}), content_type="application/json")

@@ -1,0 +1,62 @@
+.user-profile-picture {
+	position: absolute;
+    top: 190px;
+    left: 45px;
+    z-index: 1000;
+    box-shadow: 0px 7px 20px #9E9E9E;
+}
+
+.cover-pic {
+	-webkit-filter: blur(2px);
+}
+
+.sub-container {
+	position: relative;
+}
+
+.follow-unfollow-tag {
+	position: absolute;
+    top: 205px;
+    left: 200px;
+    color: white;
+    font-weight: bolder;
+    font-size: 21px;
+}
+
+.follow-unfollow-image {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    z-index: 2000;
+    top: 200px;
+    left: 270px;
+}
+
+.number {
+	padding-left: 7%;
+	font-weight: bold;
+}
+
+.music-box {
+    box-shadow: 2px 2px 30px #9E9E9E;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-radius: 7px;
+}
+
+.music-name {
+	padding-left: 2%;
+    padding-bottom: 1%;
+    font-weight: bold;
+}
+
+.like-num {
+	padding-top: 3%;
+}
+
+.user-handle {
+	font-weight: bold;
+    font-size: 15px;
+    padding-left: 14%;
+}

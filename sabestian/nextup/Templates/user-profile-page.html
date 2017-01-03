@@ -1,205 +1,79 @@
 <!Doctype html>
 <html>
 	<head>
-		<title>NextUp | A social media platform for music</title>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<link rel="stylesheet" href="/static/css/header.css">
-
-		<link rel="stylesheet" href="/static/css/user-profile-page.css">
-	    <link rel="stylesheet" type="text/css" href="/static/css/jTinder.css">
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="/static/js/js.cookie.js"></script>
-		<script type="text/javascript" src="/static/js/user-profile-page.js"></script>
+		{% include 'block1.html' %}
+		<link rel="stylesheet" href="/static/css/user-profile-page-new.css" />
+		<script type="text/javascript" src="/static/js/user-profile-page-new.js"></script>
 	</head>
 	<body>
-		{% include 'header.html' %}
-		<div class="row container-2">
-		  <div class="col-md-2 sidebar-custom">
-		    <div class="sidebar-nav">
-		      <div class="navbar navbar-default" role="navigation">
-		        <div class="navbar-header">
-		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-		            <span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		          </button>
-		          <span class="visible-xs navbar-brand">Sidebar menu</span>
-		        </div>
-		        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-		          <ul class="nav navbar-nav">
-		            <li class="active">
-		            	<div class="row icon-row">
-		            		<div class="col-md-2">
-		            			<img src="/static/images/all-songs.png" width="32px" height="32px">
-		            		</div>
-		            		<div class="col-md-9">
-			            		<a href="/?genre=all" class="icon-text">All Songs</a>
-			            	</div>
-		            	</div>
-	            	</li>
-		            <li class="active">
-		            	<div class="row icon-row">
-		            		<div class="col-md-2">
-		            			<img src="/static/images/song-pop.jpg" width="32px" height="32px">
-		            		</div>
-		            		<div class="col-md-8">
-			            		<a href="/?genre=pop" class="icon-text">Pop</a>
-			            	</div>
-		            	</div>
-	            	</li>
-		            <li class="active">
-		            	<div class="row icon-row">
-		            		<div class="col-md-2">
-		            			<img src="/static/images/rock-song.png" width="32px" height="32px">
-		            		</div>
-		            		<div class="col-md-8">
-			            		<a href="/?genre=rock" class="icon-text">Rock</a>
-			            	</div>
-		            	</div>
-	            	</li>
-		            <li class="active">
-		            	<div class="row icon-row">
-		            		<div class="col-md-2">
-		            			<img src="/static/images/hiphop-song.jpg" width="32px" height="32px">
-		            		</div>
-		            		<div class="col-md-8">
-			            		<a href="/?genre=hiphop" class="icon-text">Hip Hop</a>
-			            	</div>
-		            	</div>
-	            	</li>
-		            <li class="active">
-		            	<div class="row icon-row">
-		            		<div class="col-md-2">
-		            			<img src="/static/images/country-song.jpg" width="32px" height="32px">
-		            		</div>
-		            		<div class="col-md-8">
-			            		<a href="/?genre=country" class="icon-text">Country</a>
-			            	</div>
-		            	</div>
-	            	</li>
-
-		          </ul>
-		        </div><!--/.nav-collapse -->
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-md-12 main-part">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="row"><b>Genre</b></div>
-					<img src="/static/images/list-icon.png" height="40px" width="40px" class="genre-icon">
-				</div>
-				<div class="col-md-6 song-and-artist">
-					<div class="row song-name">{{topSong}}</div>
-					<div class="row artist-name">{{topArtist}}</div>
-				</div>
-				<div class="col-md-3">
-					<div class="row">
-						<div class="heart-like-container">
-							<img src="/static/images/heart.png" height="100px" width="100px" class="like-image">
-							<span class="badge like-badge">{{topLikes}}</span>
-						</div>
-					</div>
-					<div class="row like-text">Likes</div>
-				</div>
+		{% include 	'header.html' %}
+		<div class="row header-breaker"></div>
+		<div class="row sub-container">
+			<div><img src="/static/images/cover.jpg" height="250px" width="100%" class="cover-pic"></div>
+			<div class="user-profile-picture"><img src="{{data.profilePicture}}" height="100px" width="100px"></div>
+			{% if data.isFollowing %}
+			<div class="follow-unfollow" id="f">
+				<div class="follow-unfollow-tag follow-unfollow">UnFollow</div>
+				<div class="follow-unfollow"><img src="/static/images/closed-chain.png" class="follow-unfollow-image"></div>
 			</div>
-			<div class="row">
-	          	<div class="wrap">
-					<div id="tinderslide">
-		            	<ul class="tinder-container">
-		            		<span>Oops! No more songs.</span>
-		            		{% for s in songs %}
-	        	        	<li class="pane1">
-	        	        		<img src="/static/images/play.ico" class="play-icon">
-			                    <div class="song-file">{{s.songFile}}
-			                    </div>
-	        	        		<img src="/static/images/pause.png" class="pause-icon">
-		                    	<div class="img song-cover" id="{{s.cover}}" style="background: url('{{s.cover}}') no-repeat scroll center center; background-size: cover;"></div>
-		                    	<div class="song-name-artist-name-sub">{{s.songName}}##{{s.artistName}}##{{s.numberOfLikes}}</div>
-			                    <div class="like"></div>
-			                    <div class="dislike"></div>
-		                	</li>
-		                	{% endfor %}
-            			</ul>
-        			</div>
-        		</div>
-    		    <!-- jTinder trigger by buttons  -->
-    			<div class="actions">
-			        <a href="#" class="dislike"><i></i></a>
-			        <a href="#" class="like"><i></i></a>
-			    </div>
-
- 			   <!-- jTinder status text  -->
-    			<div id="status"></div>
-			</div>
-			<div class="row footer">
-
-			</div>
-		  </div>
-  		  <div class="col-md-4 sidebar-custom-right">
-		    <div class="sidebar-nav">
-		      <div class="navbar navbar-default" role="navigation">
-		        <div class="navbar-header">
-		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-		            <span class="sr-only">Toggle navigation</span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		          </button>
-		          <span class="visible-xs navbar-brand">Sidebar menu</span>
-		        </div>
-		        <div class="navbar-collapse collapse sidebar-navbar-collapse">
-		          <ul class="nav navbar-nav">
-		            <li class="active audio-parent">
-		            	<div class="row">
-			            	<img src="{{topCover}}" width="100px" height="100px" class="audio-player-cover">
-						</div>
-						<div class="row">
-			            	<audio controls class="audio-right-nav">
-			            		<source src="" class="mp3-source">
-			            	</audio>
-		            	</div>
-		            </li>
-		            <li class="also-liked"><a href="#">Also Liked</a></li>
-		            {% for ls in alsoLiked %}
-		            <li class="audio-parent"><a href="#">
-		            	<div class="row">
-		            		<div class="col-md-4"><img src="{{ls.cover}}" width="100px" height="100px"></div>
-		            		<div class="col-md-8">
-		            			<div class="row">
-		            				{{ls.songName}}
-		            			</div>
-		            			<div class="row">
-		            				{{ls.artistName}}
-		            			</div>
-		            		</div>
-		            	</div>
-		            	<div class="song-file-like hidden">{{ls.songFile}}</div>
-		            </a></li>
-		            {% endfor %}
-		          </ul>
-		        </div><!--/.nav-collapse -->
-		      </div>
-		    </div>
-		  </div>
-
+			{% else %}
+			<div class="follow-unfollow" id="nf">
+				<div class="follow-unfollow-tag follow-unfollow">Follow</div>
+				<div class="follow-unfollow"><img src="/static/images/open-chain.png" class="follow-unfollow-image"></div>
+			</div>				
+			{% endif %}
 		</div>
-    <!-- jQuery lib -->
-    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-    <!-- transform2d lib -->
-    <script type="text/javascript" src="/static/js/jquery.transform2d.js"></script>
-    <!-- jTinder lib -->
-    <script type="text/javascript" src="/static/js/jquery.jTinder.js"></script>
-    <!-- jTinder initialization script -->
-    <script type="text/javascript" src="/static/js/main.js"></script>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-3">
+				<div class="row"><img src="/static/images/heart-icon.png" height="50px" width="50px"></div>
+				<div class="row number">{{data.numberOfLikedSongs}}</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row"><img src="/static/images/followers-icon.png" height="50px" width="50px"></div>
+				<div class="row number">{{data.numberOfFollowers}}</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row"><img src="/static/images/following-icon.png" height="50px" width="50px"></div>
+				<div class="row number">{{data.numberOfFollowing}}</div>
+			</div>
+		</div>
+		<div class="col-md-3 music-box">
+			<div>
+				<div class="user-handle">{{data.userHandle}}</div>
+			</div>
+		</div>
+		<div class="col-md-9">
+			{% for u in data.uploadedSongsArr %}
+			<div class="music-box">
+			<div class="row music-name">{{u.songName}} - {{u.artist.userHandle}}</div>
+			<div class="row">
+				<div class="col-md-3"><img src="{{u.coverPic.url}}" width="200px"></div>
+				<div class="col-md-8"><img src="/static/images/music-playing.gif" width="100%" height="200px"></div>
+			</div>
+			<div class="row like-num">
+				<div class="col-md-3 col-md-offset-3">
+					<div class="row"><img src="/static/images/heart-icon.png" height="50px" width="50px"></div>
+					<div class="row number">{{u.numberOfLikes}}</div>
+				</div>
+			</div>
+			</div>
+			{% endfor %}
 
+			{% for l in data.likedSongsArr %}
+			<div class="music-box">
+			<div class="row music-name">{{l.song.songName}} - {{l.song.artist.userHandle}}</div>
+			<div class="row">
+				<div class="col-md-3"><img src="{{l.song.coverPic.url}}" width="200px"></div>
+				<div class="col-md-8"><img src="/static/images/music-playing.gif" width="100%" height="200px"></div>
+			</div>
+			<div class="row like-num">
+				<div class="col-md-3 col-md-offset-3">
+					<div class="row"><img src="/static/images/heart-icon.png" height="50px" width="50px"></div>
+					<div class="row number">{{l.song.numberOfLikes}}</div>
+				</div>
+			</div>
+			</div>
+			{% endfor %}
+		</div>
 	</body>
 </html>
