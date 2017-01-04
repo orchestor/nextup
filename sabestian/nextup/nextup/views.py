@@ -81,265 +81,1577 @@ def successSignup(request):
 	return render(request, "success-signup.html")
 
 def expansion(request):
-	return render(request, "expansion.html")
+	userDetailsArr = userDetails.objects.filter()
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	print(finalArr)
+	return render(request, "expansion.html", {"data": finalArr})
 
 def northWest(request):
-	return render(request, "north-west.html")
+	userDetailsArr = userDetails.objects.filter(areaCode__division = "NorthWestern")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, "north-west.html", {"data": finalArr})
 
 def southWest(request):
-	return render(request, "south-west.html")
+	userDetailsArr = userDetails.objects.filter(areaCode__division = "SouthWestern")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, "south-west.html", {"data": finalArr})
 
 def northCentral(request):
-	return render(request, "north-central.html")
+	userDetailsArr = userDetails.objects.filter(areaCode__division = "NorthCentral")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, "north-central.html", {"data": finalArr})
 
 def southCentral(request):
-	return render(request, "south-central.html")
+	userDetailsArr = userDetails.objects.filter(areaCode__division = "SouthCentral")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, "south-central.html", {"data": finalArr})
 
 def northEast(request):
-	return render(request, "north-east.html")
+	userDetailsArr = userDetails.objects.filter(areaCode__division = "NorthEastern")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, "north-east.html", {"data": finalArr})
 
 def southEast(request):
-	return render(request, "south-east.html")
+	userDetailsArr = userDetails.objects.filter(areaCode__division = "SouthEastern")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, "south-east.html", {"data": finalArr})
 
 def alabama(request):
-	return render(request, 'alabama.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Alabama")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, 'alabama.html', {"data": finalArr})
 
 def alabamaR1(request):
-	return render(request, 'alabamaR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Alabama", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, 'alabamaR1.html', {"data": finalArr})
 
 def alabamaR2(request):
-	return render(request, 'alabamaR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Alabama", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+	return render(request, 'alabamaR2.html', {"data": finalArr})
 
 def alaska(request):
-	return render(request, 'alaska.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Alaska")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'alaska.html', {"data": finalArr})
 
 def arizona(request):
-	return render(request, 'arizona.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Arizona")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'arizona.html', {"data": finalArr})
 
 def arizonaR1(request):
-	return render(request, 'arizonaR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Arizona", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'arizonaR1.html', {"data": finalArr})
 
 def arizonaR2(request):
-	return render(request, 'arizonaR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Arizona", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'arizonaR2.html', {"data": finalArr})
 
 def arkansas(request):
-	return render(request, 'arkansas.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Arkansas")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'arkansas.html', {"data": finalArr})
 
 def arkansasR1(request):
-	return render(request, 'arkansasR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Arkansas", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'arkansasR1.html', {"data": finalArr})
 
 def arkansasR2(request):
-	return render(request, 'arkansasR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Arkansas", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'arkansasR2.html', {"data": finalArr})
 
 def california(request):
-	return render(request, 'california.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "California")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'california.html', {"data": finalArr})
 
 def californiaR1(request):
-	return render(request, 'californiaR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "California", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'californiaR1.html', {"data": finalArr})
 
 def californiaR2(request):
-	return render(request, 'californiaR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "California", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'californiaR2.html', {"data": finalArr})
 
 def californiaR3(request):
-	return render(request, 'californiaR3.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "California", areaCode__region = 3)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'californiaR3.html', {"data": finalArr})
 
 def colorado(request):
-	return render(request, 'colorado.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Colarodo")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'colorado.html', {"data": finalArr})
 
 def coloradoR1(request):
-	return render(request, 'coloradoR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Colarodo", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'coloradoR1.html', {"data": finalArr})
 
 def coloradoR2(request):
-	return render(request, 'coloradoR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Colarodo", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'coloradoR2.html', {"data": finalArr})
 
 def connecticut(request):
-	return render(request, 'connecticut.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Connecticut")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'connecticut.html', {"data": finalArr})
 
 def delaware(request):
-	return render(request, 'delaware.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Delaware")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'delaware.html', {"data": finalArr})
 
 def districtofColumbia(request):
-	return render(request, 'districtofColumbia.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "District Of Columbia")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'districtofColumbia.html', {"data": finalArr})
 
 def florida(request):
-	return render(request, 'florida.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Florida")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'florida.html', {"data": finalArr})
 
 def floridaR1(request):
-	return render(request, 'floridaR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Florida", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'floridaR1.html', {"data": finalArr})
 
 def floridaR2(request):
-	return render(request, 'floridaR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Florida", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'floridaR2.html', {"data": finalArr})
 
 def floridaR3(request):
-	return render(request, 'floridaR3.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Florida", areaCode__region = 3)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'floridaR3.html', {"data": finalArr})
 
 def georgia(request):
-	return render(request, 'georgia.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Georgia")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'georgia.html', {"data": finalArr})
 
 def georgiaR1(request):
-	return render(request, 'georgiaR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Georgia", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'georgiaR1.html', {"data": finalArr})
 
 def georgiaR2(request):
-	return render(request, 'georgiaR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Georgia", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'georgiaR2.html', {"data": finalArr})
 
 def hawaii(request):
-	return render(request, 'hawaii.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Hawaii")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'hawaii.html', {"data": finalArr})
 
 def idaho(request):
-	return render(request, 'idaho.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Idaho")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'idaho.html', {"data": finalArr})
 
 def idahoR1(request):
-	return render(request, 'idahoR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Idaho", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'idahoR1.html', {"data": finalArr})
 
 def idahoR2(request):
-	return render(request, 'idahoR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Idaho", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'idahoR2.html', {"data": finalArr})
 
 def idahoR3(request):
-	return render(request, 'idahoR3.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Idaho", areaCode__region = 3)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'idahoR3.html', {"data": finalArr})
 
 def illinois(request):
-	return render(request, 'illinois.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Illinois")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'illinois.html', {"data": finalArr})
 
 def indiana(request):
-	return render(request, 'indiana.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Indiana")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'indiana.html', {"data": finalArr})
 
 def iowa(request):
-	return render(request, 'iowa.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Iowa")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'iowa.html', {"data": finalArr})
 
 def iowaR1(request):
-	return render(request, 'iowaR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Iowa", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'iowaR1.html', {"data": finalArr})
 
 def iowaR2(request):
-	return render(request, 'iowaR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Iowa", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'iowaR2.html', {"data": finalArr})
 
 def iowaR3(request):
-	return render(request, 'iowaR3.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Iowa", areaCode__region = 3)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'iowaR3.html', {"data": finalArr})
 
 def kansas(request):
-	return render(request, 'kansas.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Kansas")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'kansas.html', {"data": finalArr})
 
 def kentucky(request):
-	return render(request, 'kentucky.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Kentucky")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'kentucky.html', {"data": finalArr})
 
 def louisiana(request):
-	return render(request, 'louisiana.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Lousiana")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'louisiana.html', {"data": finalArr})
 
 def maine(request):
-	return render(request, 'maine.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Maine")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'maine.html', {"data": finalArr})
 
 def maryland(request):
-	return render(request, 'maryland.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Maryland")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'maryland.html', {"data": finalArr})
 
 def massachusetts(request):
-	return render(request, 'massachusetts.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Massachusetts")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'massachusetts.html', {"data": finalArr})
 
 def massachusettsR1(request):
-	return render(request, 'massachusettsR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Massachusetts", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'massachusettsR1.html', {"data": finalArr})
 
 def massachusettsR2(request):
-	return render(request, 'massachusettsR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Massachusetts", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'massachusettsR2.html', {"data": finalArr})
 
 def michigan(request):
-	return render(request, 'michigan.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Michigan")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'michigan.html', {"data": finalArr})
 
 def minnesota(request):
-	return render(request, 'minnesota.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Minnessota")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'minnesota.html', {"data": finalArr})
 
 def mississippi(request):
-	return render(request, 'mississippi.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Mississipi")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'mississippi.html', {"data": finalArr})
 
 def missouri(request):
-	return render(request, 'missouri.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Missouri")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'missouri.html', {"data": finalArr})
 
 def montana(request):
-	return render(request, 'montana.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Montana")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'montana.html', {"data": finalArr})
 
 def nebraska(request):
-	return render(request, 'nebraska.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Nebraska")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'nebraska.html', {"data": finalArr})
 
 def nevada(request):
-	return render(request, 'nevada.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Nevada")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'nevada.html', {"data": finalArr})
 
 def newHampshire(request):
-	return render(request, 'newHampshire.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "New Hampshire")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'newHampshire.html', {"data": finalArr})
 
 def newJersey(request):
-	return render(request, 'newJersey.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "New Jersey")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'newJersey.html', {"data": finalArr})
 
 def newMexico(request):
-	return render(request, 'newMexico.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "New Mexico")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'newMexico.html', {"data": finalArr})
 
 def newYork(request):
-	return render(request, 'newYork.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "New York")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'newYork.html', {"data": finalArr})
 
 def newYorkR1(request):
-	return render(request, 'newYorkR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "New York", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'newYorkR1.html', {"data": finalArr})
 
 def newYorkR2(request):
-	return render(request, 'newYorkR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "New York", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'newYorkR2.html', {"data": finalArr})
 
 def newYorkR3(request):
-	return render(request, 'newYorkR3.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "New York", areaCode__region = 3)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'newYorkR3.html', {"data": finalArr})
 
 def northCarolina(request):
-	return render(request, 'northCarolina.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "North Carolina")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'northCarolina.html', {"data": finalArr})
 
 def northDakota(request):
-	return render(request, 'northDakota.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "North Dakota")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'northDakota.html', {"data": finalArr})
 
 def ohio(request):
-	return render(request, 'ohio.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Ohio")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'ohio.html', {"data": finalArr})
 
 def oklahoma(request):
-	return render(request, 'oklahoma.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Oklahoma")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'oklahoma.html', {"data": finalArr})
 
 def oregon(request):
-	return render(request, 'oregon.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Oregon")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'oregon.html', {"data": finalArr})
 
 def pennsylvania(request):
-	return render(request, 'pennsylvania.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Pennslyvania")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'pennsylvania.html', {"data": finalArr})
 
 def rhodeIsland(request):
-	return render(request, 'rhodeIsland.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Rhode Island")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'rhodeIsland.html', {"data": finalArr})
 
 def southCarolina(request):
-	return render(request, 'southCarolina.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "South Carolina")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'southCarolina.html', {"data": finalArr})
 
 def southDakota(request):
-	return render(request, 'southDakota.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "South Dakota")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'southDakota.html', {"data": finalArr})
 
 def tennessee(request):
-	return render(request, 'tennessee.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Tennessee")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'tennessee.html', {"data": finalArr})
 
 def texas(request):
-	return render(request, 'texas.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Texas")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'texas.html', {"data": finalArr})
 
 def texasR1(request):
-	return render(request, 'texasR1.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Texas", areaCode__region = 1)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'texasR1.html', {"data": finalArr})
 
 def texasR2(request):
-	return render(request, 'texasR2.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Texas", areaCode__region = 2)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'texasR2.html', {"data": finalArr})
 
 def texasR3(request):
-	return render(request, 'texasR3.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Texas", areaCode__region = 3)
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'texasR3.html', {"data": finalArr})
 
 def utah(request):
-	return render(request, 'utah.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Utah")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'utah.html', {"data": finalArr})
 
 def vermont(request):
-	return render(request, 'vermont.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Vermont")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'vermont.html', {"data": finalArr})
 
 def virginia(request):
-	return render(request, 'virginia.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Virginia")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'virginia.html', {"data": finalArr})
 
 def washington(request):
-	return render(request, 'washington.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Washington")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'washington.html', {"data": finalArr})
 
 def westVirginia(request):
-	return render(request, 'westVirginia.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "West Virginia")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'westVirginia.html', {"data": finalArr})
 
 def wisconsin(request):
-	return render(request, 'wisconsin.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Wisconsin")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'wisconsin.html', {"data": finalArr})
 
 def wyoming(request):
-	return render(request, 'wyoming.html')
+	userDetailsArr = userDetails.objects.filter(areaCode__state = "Wyoming")
+	finalArr = []
+	for u in userDetailsArr:
+		temp = {
+			"userHandle": u.userHandle,
+			"profilePic": u.profilePicture.url
+		}
+		songArr = song.objects.filter(artist = u)
+		cummulative = 0
+		for s in songArr:
+			cummulative += s.numberOfLikes
+		temp["numberOfLikes"] = cummulative
+		finalArr.append(temp)
+		finalArr.sort(key=lambda x: x["numberOfLikes"], reverse=True)
+
+	return render(request, 'wyoming.html', {"data": finalArr})

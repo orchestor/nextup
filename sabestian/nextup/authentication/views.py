@@ -171,6 +171,10 @@ def userProfile(request):
 				temp = {
 					"userHandle": userDetailsObject.userHandle
 				}
+				if (userDetailsObject.type == "Artist"):
+					temp["isArtist"] = True
+				else:
+					temp["isArtist"] = False
 				if (userDetailsObject.profilePicture):
 					temp["profilePicture"] = userDetailsObject.profilePicture.url
 				else:
@@ -186,6 +190,7 @@ def userProfile(request):
 				temp["numberOfFollowing"] = len(follow.objects.filter(follower = user))
 				if (userDetailsObject.type == "Artist"):
 					temp["uploadedSongsArr"] = song.objects.filter(artist = userDetailsObject)
+				temp["areaCode"] = userDetailsObject.areaCode.areaCode
 				print(temp)
 				return render(request, "user-profile-page.html", {"data": temp})
 	else:

@@ -18,18 +18,7 @@
 		{% include 	'header.html' %}
 		<div class="row header-breaker"></div>
 		<div class="row sub-container">
-			<div class="search">
-				<form class="form-inline">
-				  <div class="form-group">
-				    <label class="sr-only" for="search-box">Search</label>
-				    <div class="input-group">
-				      <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-				      <input type="text" class="form-control" id="search-box" placeholder="Zip, Area, State">
-				    </div>
-				  </div>
-				  <button type="submit" class="btn btn-primary">Search</button>
-				</form>
-			</div>
+			{% include 'block2.html' %}
 			<div class="usa">
 				<span>The United States Of America</span> 
 			</div>
@@ -44,18 +33,7 @@
   				  <area shape="poly" coords="502, 224, 534, 205, 556, 205, 571, 222, 602, 190, 636, 231, 583, 304, 611, 361, 605, 380, 552, 319, 506, 322, 506, 260, 481, 261, 494, 233" alt="South Eastern" href="/south-east">
 				</map>
 			</div>
-			<div class="col-md-3 trending">
-				<div class="row">
-					<img src="/static/images/fire.png" width="40px" height="40px" class="col-md-offset-3">
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="row">bhavya1995</div>
-						<div class="row"><img src="/static/images/self.jpg" width="32px" height="32px"></div>
-					</div>
-					<div class="col-md-2 likes"><img src="/static/images/heart.png" width="35px" height="35px"></div>
-				</div>
-			</div>
+			{% include 'block3.html' %}
 		</div>
 	</body>
 </html>

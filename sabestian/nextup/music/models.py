@@ -34,3 +34,11 @@ class likedSongs(models.Model):
 
 	def __str__(self):
 		return self.song.songName + " " + self.user.userHandle
+
+class purchaseSongs(models.Model):
+	song = models.ForeignKey(song)
+	purchasePortalName = models.CharField(max_length = 255)
+	purchaseLink = models.CharField(max_length = 255)
+
+	def __str__(self):
+		return self.song.songName + " " + self.purchasePortalName

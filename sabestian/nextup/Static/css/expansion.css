@@ -37,3 +37,10 @@
 .likes img {
 	margin-top: 80%;
 }
+
+.numberOflikes {
+    position: absolute;
+    top: 80px;
+    left: 113px;
+    font-weight: bold;
+}
