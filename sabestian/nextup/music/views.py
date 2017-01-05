@@ -6,6 +6,8 @@ import json
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 def likeSong(request):
@@ -55,4 +57,46 @@ def getPurchaseLinks(request):
 					"status": 1,
 					"purchaseLinkArr": purchaseLinkArr
 				}), content_type="application/json")
-	
+
+def uploadSong(request):
+	return render(request, "upload.html")
+
+@csrf_exempt
+def uploadSongFile(request):
+	f = request.FILES["file"]
+	print(f.name)
+	userDetailsObj = userDetails.objects.filter(user = request.user)
+	if (len(userDetailsObj) > 0):
+		userDetailsObj = userDetailsObj[0]
+		songObj = song.objects.create(songFile = f, artist = userDetailsObj, status = "Incomplete")
+	return HttpResponse(
+		json.dumps(
+			{
+				"status": 1,
+				"songId": songObj.pk
+			}), content_type="application/json")
+
+def uploadSongStep2(request):
+	songId = request.GET.get("songId")
+	return render(request, "upload-song-step-2.html", {"songId": songId})
+
+def uploadSongDetails(request):
+	songId = request.POST.get("songId")
+	songName = request.POST.get("songName")
+	coverPic = request.FILES["coverPic"]
+	genre = request.POST.get("genre")
+	purchaseLink1PortalName = request.POST.get("purchaseLink1PortalName")
+	purchaseLink1 = request.POST.get("purchaseLink1")
+	purchaseLink2PortalName = request.POST.get("purchaseLink2PortalName")
+	purchaseLink2 = request.POST.get("purchaseLink2")
+	songObj = song.objects.filter(pk = int(songId))
+	if (len(songObj) > 0):
+		songObj = songObj[0]
+		songObj.songName = songName
+		songObj.coverPic = coverPic
+		songObj.genre = genre
+		songObj.status = "Complete"
+		songObj.save()
+		purchaseLinkObj = purchaseSongs.objects.create(song = songObj, purchasePortalName = purchaseLink1PortalName, purchaseLink = purchaseLink1)
+		purchaseLinkObj = purchaseSongs.objects.create(song = songObj, purchasePortalName = purchaseLink2PortalName, purchaseLink = purchaseLink2)
+	return HttpResponseRedirect("/")

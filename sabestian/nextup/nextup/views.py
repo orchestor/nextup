@@ -10,15 +10,15 @@ def home(request):
 	if (request.user.is_authenticated()):
 		displayPage = "home.html"
 		if (request.GET.get("genre") == "pop"):
-			songs = song.objects.filter(genre = "Latin Pop")
+			songs = song.objects.filter(genre = "Latin Pop", status = "Complete")
 		elif (request.GET.get("genre") == "rock"):
-			songs = song.objects.filter(genre = "Rock/Oldies")
+			songs = song.objects.filter(genre = "Rock/Oldies", status = "Complete")
 		elif (request.GET.get("genre") == "hiphop"):
-			songs = song.objects.filter(genre = "Hip-Hop")
+			songs = song.objects.filter(genre = "Hip-Hop", status = "Complete")
 		elif (request.GET.get("genre") == "country"):
-			songs = song.objects.filter(genre = "Country")
+			songs = song.objects.filter(genre = "Country", status = "Complete")
 		else:
-			songs = song.objects.filter()
+			songs = song.objects.filter(status = "Complete")
 		# print(songs[0].songName)
 		responseArr = []
 		for s in songs:

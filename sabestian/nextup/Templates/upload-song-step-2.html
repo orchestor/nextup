@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		{% include 'block1.html'%}
+		<link rel="stylesheet" href="/static/css/upload-song-step-2.css">
+	</head>
+	<body>
+		{% include 'header.html' %}
+		<div class="row header-breaker"></div>
+		<div class="row sub-container">
+			<form method="POST" action="/upload-song-details" class="col-md-8 col-md-offset-2" enctype="multipart/form-data">
+				{% csrf_token %}
+				<input type="text" name="songId" value="{{songId}}" class="hidden">
+				<div class="form-group">
+				    <label for="song-name">Song Name</label>
+				    <input type="text" class="form-control" id="song-name" placeholder="Song Name" name="songName">
+				  </div>
+				  <div class="form-group">
+				    <label for="genre">Genre</label>
+					<select class="form-control" name="genre">
+					  <option>Select Genre</option>
+					  <option>Alternative</option>
+					  <option>Country</option>
+					  <option>EDM</option>
+					  <option>Metal</option>
+					  <option>Indie</option>
+					  <option>Latin Pop</option>
+					  <option>R&B</option>
+					  <option>Hip-Hop</option>
+					  <option>Rock/Oldies</option>
+					  <option>Dancehall</option>
+					</select>
+				  </div>
+				  <div class="form-group">
+				    <label for="cover-pic">Song Cover</label>
+				    <input type="file" id="cover-pic" name="coverPic">
+				    <p class="help-block">Please upload cover image for your song.</p>
+				  </div>
+				<div class="form-group">
+				    <label for="purchase-link-1-portal-name">Song purchase link 1 Portal name</label>
+				    <input type="text" class="form-control" id="purchase-link-1-portal-name" placeholder="Song purchase link 1 portal name" name="purchaseLink1PortalName">
+				  </div>
+				<div class="form-group">
+				    <label for="purchase-link-1">Song purchase link 1</label>
+				    <input type="text" class="form-control" id="purchase-link-1" placeholder="Song purchase link 1" name="purchaseLink1">
+				  </div>
+				<div class="form-group">
+				    <label for="purchase-link-2-portal-name">Song purchase link 2 Portal name</label>
+				    <input type="text" class="form-control" id="purchase-link-2-portal-name" placeholder="Song purchase link 2 portal name" name="purchaseLink2PortalName">
+				  </div>
+				<div class="form-group">
+				    <label for="purchase-link-2">Song purchase link 2</label>
+				    <input type="text" class="form-control" id="purchase-link-2" placeholder="Song purchase link 2" name="purchaseLink2">
+				  </div>
+
+				  <input type="submit" class="btn btn-primary btn-lg col-md-12">
+			</form>
+	</body>
+</html>

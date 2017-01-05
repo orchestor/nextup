@@ -16,6 +16,11 @@ class song(models.Model):
 		('Dancehall', 'Dancehall')
 	)
 
+	STATUS = (
+		("Incomplete", "Incomplete"),
+		("Complete", "Complete")
+	)
+
 	songName = models.CharField(max_length = 255)
 	artist = models.ForeignKey(userDetails)
 	coverPic = models.ImageField(upload_to = 'song_covers/')
@@ -23,7 +28,8 @@ class song(models.Model):
 	songFile = models.FileField(upload_to = 'song_file/')
 	numberOfLikes = models.BigIntegerField(default = 0)
 	genre = models.CharField(max_length = 255, choices = GENRES)
-
+	status = models.CharField(max_length = 255, choices = STATUS)
+	
 	def __str__(self):
 		return self.songName + " " + self.artist.userHandle
 

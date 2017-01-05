@@ -122,4 +122,8 @@ urlpatterns = [
     url(r'^follow$', follow_user),
     url(r'^unfollow$', unfollow_user),
     url(r'^getPurchaseLinks$', getPurchaseLinks),
+    url(r'^upload-song$', uploadSong),
+    url(r'^upload-song-file$', uploadSongFile),
+    url(r'^upload-song-step-2$', uploadSongStep2),
+    url(r'^upload-song-details$', uploadSongDetails),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
